@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->default("admin@nearby.com");
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->default("$2y$10$2XjJVCbg92f1nC.zyLyjveQAFc7SQdqKpR6xZyEDrTi/dWaWF9NKm");
+            $table->string('role')->default("Admin");
             $table->rememberToken();
             $table->timestamps();
         });
