@@ -25,6 +25,8 @@ class CreateAmbulancesTable extends Migration
             $table->string('status');
             $table->integer('reports')->default(0);
             $table->boolean('visibility')->default(1);
+            $table->boolean('verification')->default(0);
+            $table->boolean('verified')->default(0);
             $table->timestamps();
         });
     }
