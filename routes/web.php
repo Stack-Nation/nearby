@@ -38,6 +38,12 @@ Route::name("resources.")->prefix("resources")->group(function () {
     Route::get("add",[ResourceMain::class,"index"])->name("add");
     Route::name("add.")->prefix("add")->group(function () {
         Route::post("hospital",[ResourceMain::class,"hospital"])->name("hospital");
+        Route::post("plasma",[ResourceMain::class,"plasma"])->name("plasma");
+        Route::post("testing",[ResourceMain::class,"testing"])->name("testing");
+        Route::post("ambulance",[ResourceMain::class,"ambulance"])->name("ambulance");
+        Route::post("vaccination",[ResourceMain::class,"vaccination"])->name("vaccination");
+        Route::post("oxygen",[ResourceMain::class,"oxygen"])->name("oxygen");
+        Route::post("medicines",[ResourceMain::class,"medicines"])->name("medicines");
     });
 });
 
