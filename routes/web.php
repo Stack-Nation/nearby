@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\MainController as Main;
+
 // Admin
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 
@@ -22,9 +24,7 @@ use App\Http\Controllers\Resource\MainController as ResourceMain;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("index");
+Route::get('/',[Main::class,"index"])->name("index");
 
 Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () {
     Route::get("dashboard",[AdminDashboard::class,"index"])->name("dashboard");
