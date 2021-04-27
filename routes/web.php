@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 // Volunteer Application
 use App\Http\Controllers\VolunteerController as Volunteer;
 
+// Resouces
+use App\Http\Controllers\Resource\MainController as ResourceMain;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,5 +33,12 @@ Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () 
 
 Route::get("apply-volunteer",[Volunteer::class,"index"])->name("apply-volunteer");
 Route::post("apply-volunteer",[Volunteer::class,"apply"])->name("apply-volunteer");
+
+Route::name("resources.")->prefix("resources")->group(function () {
+    Route::get("add",[ResourceMain::class,"index"])->name("add");
+    Route::name("add.")->prefix("add")->group(function () {
+        Route::post("hospital",[ResourceMain::class,"hospital"])->name("hospital");
+    });
+});
 
 require __DIR__.'/auth.php';

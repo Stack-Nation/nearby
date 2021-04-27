@@ -18,7 +18,6 @@ class CreateMedicinesTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->json('categories');
-            $table->string('image');
             $table->longText('description');
             $table->mediumText('address');
             $table->string('pin_code');

@@ -18,7 +18,6 @@ class CreatePlasmaDonorsTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('blood_group');
-            $table->string('image');
             $table->longText('description');
             $table->mediumText('address');
             $table->string('pin_code');

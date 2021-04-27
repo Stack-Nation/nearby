@@ -14,7 +14,8 @@
             <div id="map"></div>
         </div>
         <div class="col-lg-5">
-            <p>Data</p>
+            <h4>Do you have any Resources to Share?</h4>
+            <a href="{{route("resources.add")}}" class="btn btn-info">Add Resource</a>
         </div>
     </div>
 </div>
@@ -37,7 +38,7 @@
                     lng: position.coords.longitude,
                 };
                 infoWindow.setPosition(pos);
-                infoWindow.setContent("You are here");
+                infoWindow.setContent('You are here.');
                 infoWindow.open(map);
                 map.setCenter(pos);
                 },

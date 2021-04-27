@@ -17,7 +17,6 @@ class CreateAmbulancesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->string('image');
             $table->longText('description');
             $table->mediumText('address');
             $table->string('pin_code');

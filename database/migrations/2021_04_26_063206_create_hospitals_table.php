@@ -17,7 +17,6 @@ class CreateHospitalsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('contact_name');
-            $table->string('image');
             $table->string('phone');
             $table->longText('description');
             $table->integer('beds');
