@@ -3,7 +3,7 @@
 @section('head')
 <style>
     #map{
-        height:500px;
+        height: 300px;
     }
 </style>
 @endsection
@@ -20,16 +20,36 @@
 </div>
 @endsection
 @section('scripts')
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcbPnM3CegYU_yShaxZrMQgl_WOPTqbrE&callback=initMap">
-</script>
 <script>
     let map;
 
     function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
-    });
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8,
+        });
+        infoWindow = new google.maps.InfoWindow();
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+                infoWindow.setPosition(pos);
+                infoWindow.setContent("You are here");
+                infoWindow.open(map);
+                map.setCenter(pos);
+                },
+                () => {
+                handleLocationError(true, infoWindow, map.getCenter());
+                }
+            );
+        } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+        }
     }
+
 </script>
 @endsection

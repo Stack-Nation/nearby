@@ -69,6 +69,7 @@
                 @endforeach
             @endif
         </script>
+        <script async src="https://maps.googleapis.com/maps/api/js?key={{env("GOOGLE_MAPS_API")}}&callback=initMap"></script>
         @yield('scripts')
     </body>
 </html>
