@@ -3,7 +3,7 @@
 @section('head')
 <style>
     #map{
-        height: 300px;
+        height: 500px;
     }
 </style>
 @endsection
@@ -16,6 +16,206 @@
         <div class="col-lg-5">
             <h4>Do you have any Resources to Share?</h4>
             <a href="{{route("resources.add")}}" class="btn btn-info">Add Resource</a>
+            <hr>
+            <select name="facility" id="facility" onchange="openRes(this.value);" class="form-control">
+                <option value="">Select a facility</option>
+                <option value="hospital">Hospital Availability</option>
+                <option value="vaccination">Vaccination Centers</option>
+                <option value="plasma">Plasma Donor Availability</option>
+                <option value="testing">COVID-19 Testing Facilities</option>
+                <option value="ambulance">Ambulance Service Availability</option>
+                <option value="oxygen">Oxygen Availability</option>
+                <option value="medicines">Medicines Availability</option>
+            </select>
+            <div id="hospital" class="row mt-2" style="display: none">
+                @if($hospitals->count()>0)
+                    @foreach ($hospitals as $resource)
+                        <div class="col-4 mb-2">Hospital Name</div>
+                        <div class="col-8 mb-2">{{$resource->name}}</div>
+                        <div class="col-4 mb-2">Contact Name</div>
+                        <div class="col-8 mb-2">{{$resource->contact_name}}</div>
+                        <div class="col-4 mb-2">Contact Phone Number</div>
+                        <div class="col-8 mb-2">{{$resource->phone}}</div>
+                        <div class="col-4 mb-2">Description</div>
+                        <div class="col-8 mb-2">{!!$resource->description!!}</div>
+                        <div class="col-4 mb-2">Number of beds</div>
+                        <div class="col-8 mb-2">{{$resource->beds}}</div>
+                        <div class="col-4 mb-2">Price</div>
+                        <div class="col-8 mb-2">{{$resource->price}} per {{$resource->per}}</div>
+                        <div class="col-4 mb-2">Address</div>
+                        <div class="col-8 mb-2"><span class="address" data-lon="{{json_decode($resource->address)->lon}}" data-lat="{{json_decode($resource->address)->lat}}"></span></div>
+                        <div class="col-4 mb-2">Pin Code</div>
+                        <div class="col-8 mb-2">{{$resource->pin_code}}</div>
+                        <div class="col-4 mb-2">Landmark</div>
+                        <div class="col-8 mb-2">{{$resource->landmark}}</div>
+                        <div class="col-4 mb-2">Status</div>
+                        <div class="col-8 mb-2">{{$resource->status}}</div>
+                        <hr>
+                    @endforeach
+                @else
+                <div class="col-12">
+                    No data found.
+                </div>
+                @endif
+            </div>
+            <div id="vaccination" class="row mt-2" style="display: none">
+                @if($vaccinations->count()>0)
+                    @foreach ($vaccinations as $resource)
+                        <div class="col-4 mb-2">Center Name</div>
+                        <div class="col-8 mb-2">{{$resource->name}}</div>
+                        <div class="col-4 mb-2">Center Phone Number</div>
+                        <div class="col-8 mb-2">{{$resource->phone}}</div>
+                        <div class="col-4 mb-2">Description</div>
+                        <div class="col-8 mb-2">{!!$resource->description!!}</div>
+                        <div class="col-4 mb-2">Address</div>
+                        <div class="col-8 mb-2"><span class="address" data-lon="{{json_decode($resource->address)->lon}}" data-lat="{{json_decode($resource->address)->lat}}"></span></div>
+                        <div class="col-4 mb-2">Pin Code</div>
+                        <div class="col-8 mb-2">{{$resource->pin_code}}</div>
+                        <div class="col-4 mb-2">Landmark</div>
+                        <div class="col-8 mb-2">{{$resource->landmark}}</div>
+                        <div class="col-4 mb-2">Status</div>
+                        <div class="col-8 mb-2">{{$resource->status}}</div>
+                        <hr>
+                    @endforeach
+                @else
+                <div class="col-12">
+                    No data found.
+                </div>
+                @endif
+            </div>
+            <div id="plasma" class="row mt-2" style="display: none">
+                @if($plasma->count()>0)
+                    @foreach ($plasma as $resource)
+                        <div class="col-4 mb-2">Contact Name</div>
+                        <div class="col-8 mb-2">{{$resource->name}}</div>
+                        <div class="col-4 mb-2">Contact Phone Number</div>
+                        <div class="col-8 mb-2">{{$resource->phone}}</div>
+                        <div class="col-4 mb-2">Blood Group</div>
+                        <div class="col-8 mb-2">{{$resource->blood_group}}</div>
+                        <div class="col-4 mb-2">Description</div>
+                        <div class="col-8 mb-2">{!!$resource->description!!}</div>
+                        <div class="col-4 mb-2">Address</div>
+                        <div class="col-8 mb-2"><span class="address" data-lon="{{json_decode($resource->address)->lon}}" data-lat="{{json_decode($resource->address)->lat}}"></span></div>
+                        <div class="col-4 mb-2">Pin Code</div>
+                        <div class="col-8 mb-2">{{$resource->pin_code}}</div>
+                        <div class="col-4 mb-2">Landmark</div>
+                        <div class="col-8 mb-2">{{$resource->landmark}}</div>
+                        <div class="col-4 mb-2">Status</div>
+                        <div class="col-8 mb-2">{{$resource->status}}</div>
+                        <hr>
+                    @endforeach
+                @else
+                <div class="col-12">
+                    No data found.
+                </div>
+                @endif
+            </div>
+            <div id="testing" class="row mt-2" style="display: none">
+                @if($testings->count()>0)
+                    @foreach ($testings as $resource)
+                        <div class="col-4 mb-2">Facility Name</div>
+                        <div class="col-8 mb-2">{{$resource->name}}</div>
+                        <div class="col-4 mb-2">Facility Phone Number</div>
+                        <div class="col-8 mb-2">{{$resource->phone}}</div>
+                        <div class="col-4 mb-2">Price</div>
+                        <div class="col-8 mb-2">{{$resource->price}} per {{$resource->per}}</div>
+                        <div class="col-4 mb-2">Description</div>
+                        <div class="col-8 mb-2">{!!$resource->description!!}</div>
+                        <div class="col-4 mb-2">Address</div>
+                        <div class="col-8 mb-2"><span class="address" data-lon="{{json_decode($resource->address)->lon}}" data-lat="{{json_decode($resource->address)->lat}}"></span></div>
+                        <div class="col-4 mb-2">Pin Code</div>
+                        <div class="col-8 mb-2">{{$resource->pin_code}}</div>
+                        <div class="col-4 mb-2">Landmark</div>
+                        <div class="col-8 mb-2">{{$resource->landmark}}</div>
+                        <div class="col-4 mb-2">Status</div>
+                        <div class="col-8 mb-2">{{$resource->status}}</div>
+                        <hr>
+                    @endforeach
+                @else
+                <div class="col-12">
+                    No data found.
+                </div>
+                @endif
+            </div>
+            <div id="ambulance" class="row mt-2" style="display: none">
+                @if($ambulances->count()>0)
+                    @foreach ($ambulances as $resource)
+                        <div class="col-4 mb-2">Contact Name</div>
+                        <div class="col-8 mb-2">{{$resource->name}}</div>
+                        <div class="col-4 mb-2">Contact Phone Number</div>
+                        <div class="col-8 mb-2">{{$resource->phone}}</div>
+                        <div class="col-4 mb-2">Description</div>
+                        <div class="col-8 mb-2">{!!$resource->description!!}</div>
+                        <div class="col-4 mb-2">Address</div>
+                        <div class="col-8 mb-2"><span class="address" data-lon="{{json_decode($resource->address)->lon}}" data-lat="{{json_decode($resource->address)->lat}}"></span></div>
+                        <div class="col-4 mb-2">Pin Code</div>
+                        <div class="col-8 mb-2">{{$resource->pin_code}}</div>
+                        <div class="col-4 mb-2">Landmark</div>
+                        <div class="col-8 mb-2">{{$resource->landmark}}</div>
+                        <div class="col-4 mb-2">Status</div>
+                        <div class="col-8 mb-2">{{$resource->status}}</div>
+                        <hr>
+                    @endforeach
+                @else
+                <div class="col-12">
+                    No data found.
+                </div>
+                @endif
+            </div>
+            <div id="oxygen" class="row mt-2" style="display: none">
+                @if($oxygens->count()>0)
+                    @foreach ($oxygens as $resource)
+                        <div class="col-4 mb-2">Facility Name</div>
+                        <div class="col-8 mb-2">{{$resource->name}}</div>
+                        <div class="col-4 mb-2">Facility Phone Number</div>
+                        <div class="col-8 mb-2">{{$resource->phone}}</div>
+                        <div class="col-4 mb-2">Price</div>
+                        <div class="col-8 mb-2">{{$resource->price}} per {{$resource->per}}</div>
+                        <div class="col-4 mb-2">Description</div>
+                        <div class="col-8 mb-2">{!!$resource->description!!}</div>
+                        <div class="col-4 mb-2">Address</div>
+                        <div class="col-8 mb-2"><span class="address" data-lon="{{json_decode($resource->address)->lon}}" data-lat="{{json_decode($resource->address)->lat}}"></span></div>
+                        <div class="col-4 mb-2">Pin Code</div>
+                        <div class="col-8 mb-2">{{$resource->pin_code}}</div>
+                        <div class="col-4 mb-2">Landmark</div>
+                        <div class="col-8 mb-2">{{$resource->landmark}}</div>
+                        <div class="col-4 mb-2">Status</div>
+                        <div class="col-8 mb-2">{{$resource->status}}</div>
+                        <hr>
+                    @endforeach
+                @else
+                <div class="col-12">
+                    No data found.
+                </div>
+                @endif
+            </div>
+            <div id="medicines" class="row mt-2" style="display: none">
+                @if($medicines->count()>0)
+                    @foreach ($medicines as $resource)
+                        <div class="col-4 mb-2">Contact Name</div>
+                        <div class="col-8 mb-2">{{$resource->name}}</div>
+                        <div class="col-4 mb-2">Contact Phone Number</div>
+                        <div class="col-8 mb-2">{{$resource->phone}}</div>
+                        <div class="col-4 mb-2">Availabile Types</div>
+                        <div class="col-8 mb-2">{{$resource->categories}}</div>
+                        <div class="col-4 mb-2">Description</div>
+                        <div class="col-8 mb-2">{!!$resource->description!!}</div>
+                        <div class="col-4 mb-2">Address</div>
+                        <div class="col-8 mb-2"><span class="address" data-lon="{{json_decode($resource->address)->lon}}" data-lat="{{json_decode($resource->address)->lat}}"></span></div>
+                        <div class="col-4 mb-2">Pin Code</div>
+                        <div class="col-8 mb-2">{{$resource->pin_code}}</div>
+                        <div class="col-4 mb-2">Landmark</div>
+                        <div class="col-8 mb-2">{{$resource->landmark}}</div>
+                        <div class="col-4 mb-2">Status</div>
+                        <div class="col-8 mb-2">{{$resource->status}}</div>
+                        <hr>
+                    @endforeach
+                @else
+                <div class="col-12">
+                    No data found.
+                </div>
+                @endif
+            </div>
         </div>
     </div>
 </div>
@@ -229,30 +429,66 @@
             }
             @endforeach
         @endif
+
+        const addresses = $(".address");
+        addresses.map((key,address) => {
+            pos = {
+                lng:$(address).data("lon"),
+                lat:$(address).data("lat"),
+            }
+            const geocoder = new google.maps.Geocoder();
+            getLocation(geocoder,map,pos,address);
+        })
     }
 
     function geocodeLatLng(geocoder, map, infowindow,pos) {
-  const latlng = {
-    lat: parseFloat(pos.lat),
-    lng: parseFloat(pos.lng),
-  };
-  geocoder.geocode({ location: latlng }, (results, status) => {
-    if (status === "OK") {
-      if (results[0]) {
-        map.setZoom(11);
-        const marker = new google.maps.Marker({
-          position: latlng,
-          map: map,
+        const latlng = {
+            lat: parseFloat(pos.lat),
+            lng: parseFloat(pos.lng),
+        };
+        geocoder.geocode({ location: latlng }, (results, status) => {
+            if (status === "OK") {
+            if (results[0]) {
+                map.setZoom(11);
+                const marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                });
+                infowindow.setContent(results[0].formatted_address);
+                infowindow.open(map, marker);
+            } else {
+                window.alert("No results found");
+            }
+            } else {
+            window.alert("Geocoder failed due to: " + status);
+            }
         });
-        infowindow.setContent(results[0].formatted_address);
-        infowindow.open(map, marker);
-      } else {
-        window.alert("No results found");
-      }
-    } else {
-      window.alert("Geocoder failed due to: " + status);
     }
-  });
-}
+
+    function getLocation(geocoder, map,pos,content) {
+        const latlng = {
+            lat: parseFloat(pos.lat),
+            lng: parseFloat(pos.lng),
+        };
+        geocoder.geocode({ location: latlng }, (results, status) => {
+            if (status === "OK") {
+            if (results[0]) {
+                $(content).html(results[0].formatted_address);
+            } else {
+                window.alert("No results found");
+            }
+            } else {
+            console.log("Geocoder failed due to: " + status);
+            }
+        });
+    }
+
+    function openRes(val){
+        if(localStorage.getItem("res")!=null && localStorage.getItem("res")!=""){
+            $("#"+localStorage.getItem("res")).css("display","none");
+        }
+        $("#"+val).css("display","flex");
+        localStorage.setItem("res",val);
+    }
 </script>
 @endsection
