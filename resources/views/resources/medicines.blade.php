@@ -95,7 +95,7 @@
             marker = new google.maps.Marker({
                 position: pos,
                 map: map,
-                icon: 'assets/icons/medicine.png'
+                icon: '{{asset("assets/icons/medicine.png")}}'
             });
             infowindow = new google.maps.InfoWindow()
 
