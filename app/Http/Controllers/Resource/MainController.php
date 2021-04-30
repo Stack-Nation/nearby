@@ -11,184 +11,56 @@ use App\Models\Ambulance;
 use App\Models\VaccinationCenter;
 use App\Models\OxygenAvailability;
 use App\Models\Medicine;
+use App\Models\Meal;
 
 class MainController extends Controller
 {
-    public function index(){
-        return view("resources.index");
-    }
-    public function hospital(Request $request){
-        $this->validate($request,[
-            "name" => "required",
-            "contact_name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "beds" => "required",
-            "price" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+    public function hospitals(){
+        $hospitals = Hospital::where("visibility",1)->latest()->get();
+        return view("resources.hospitals")->with([
+            "hospitals" => $hospitals
         ]);
-        $resource = new Hospital;
-        $resource->name = $request->name;
-        $resource->contact_name = $request->contact_name;
-        $resource->phone = $request->phone;
-        $resource->description = $request->description;
-        $resource->beds = $request->beds;
-        $resource->price = $request->price;
-        $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
-        $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
-        $resource->save();
-        $request->session()->flash('success', "Resource added");
-        return redirect()->back();
     }
-    public function plasma(Request $request){
-        $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+    public function plasma(){
+        $plasma = PlasmaDonor::where("visibility",1)->latest()->get();
+        return view("resources.plasma")->with([
+            "plasma" => $plasma
         ]);
-        $resource = new PlasmaDonor;
-        $resource->name = $request->name;
-        $resource->phone = $request->phone;
-        $resource->blood_group = $request->blood_group;
-        $resource->description = $request->description;
-        $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
-        $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
-        $resource->save();
-        $request->session()->flash('success', "Resource added");
-        return redirect()->back();
     }
-    public function testing(Request $request){
-        $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "price" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+    public function testings(){
+        $testings = TestingFacility::where("visibility",1)->latest()->get();
+        return view("resources.testings")->with([
+            "testings" => $testings
         ]);
-        $resource = new TestingFacility;
-        $resource->name = $request->name;
-        $resource->phone = $request->phone;
-        $resource->price = $request->price;
-        $resource->description = $request->description;
-        $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
-        $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
-        $resource->save();
-        $request->session()->flash('success', "Resource added");
-        return redirect()->back();
     }
-    public function ambulance(Request $request){
-        $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+    public function ambulances(){
+        $ambulances = Ambulance::where("visibility",1)->latest()->get();
+        return view("resources.ambulances")->with([
+            "ambulances" => $ambulances
         ]);
-        $resource = new Ambulance;
-        $resource->name = $request->name;
-        $resource->phone = $request->phone;
-        $resource->description = $request->description;
-        $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
-        $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
-        $resource->save();
-        $request->session()->flash('success', "Resource added");
-        return redirect()->back();
     }
-    public function vaccination(Request $request){
-        $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+    public function vaccinations(){
+        $vaccinations = VaccinationCenter::where("visibility",1)->latest()->get();
+        return view("resources.vaccinations")->with([
+            "vaccinations" => $vaccinations
         ]);
-        $resource = new VaccinationCenter;
-        $resource->name = $request->name;
-        $resource->phone = $request->phone;
-        $resource->description = $request->description;
-        $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
-        $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
-        $resource->save();
-        $request->session()->flash('success', "Resource added");
-        return redirect()->back();
     }
-    public function oxygen(Request $request){
-        $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "price" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+    public function oxygens(){
+        $oxygens = OxygenAvailability::where("visibility",1)->latest()->get();
+        return view("resources.oxygens")->with([
+            "oxygens" => $oxygens
         ]);
-        $resource = new OxygenAvailability;
-        $resource->name = $request->name;
-        $resource->phone = $request->phone;
-        $resource->price = $request->price;
-        $resource->description = $request->description;
-        $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
-        $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
-        $resource->save();
-        $request->session()->flash('success', "Resource added");
-        return redirect()->back();
     }
-    public function medicines(Request $request){
-        $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "categories" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+    public function medicines(){
+        $medicines = Medicine::where("visibility",1)->latest()->get();
+        return view("resources.medicines")->with([
+            "medicines" => $medicines
         ]);
-        $resource = new Medicine;
-        $resource->name = $request->name;
-        $resource->phone = $request->phone;
-        $resource->categories = json_encode($request->categories);
-        $resource->description = $request->description;
-        $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
-        $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
-        $resource->save();
-        $request->session()->flash('success', "Resource added");
-        return redirect()->back();
+    }
+    public function meals(){
+        $meals = Meal::where("visibility",1)->latest()->get();
+        return view("resources.meals")->with([
+            "meals" => $meals
+        ]);
     }
 }

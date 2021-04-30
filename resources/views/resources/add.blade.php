@@ -48,6 +48,9 @@
                 <li class="nav-item" role="presentation">
                     <button class="btn" id="medicines-tab" data-bs-toggle="tab" data-bs-target="#medicines" type="button" role="tab" aria-controls="medicines" aria-selected="false">Medicines Availability</button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="btn" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals" type="button" role="tab" aria-controls="meals" aria-selected="false">Meals Distributor</button>
+                </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="hospital" role="tabpanel" aria-labelledby="pills-hospital-tab">
@@ -344,6 +347,81 @@
                             <div class="map" id="medicinesmap"></div>
                             <input type="hidden" id="mlat" name="lat">
                             <input type="hidden" id="mlon" name="lon">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="text" class="form-control" placeholder="Pin Code" name="pin_code">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="text" class="form-control" placeholder="Landmark" name="landmark">
+                        </div>
+                        <div class="form-group mb-2">
+                            <select name="status" class="form-control">
+                                <option value="">Select a status</option>
+                                <option value="Responding">Responding</option>
+                                <option value="Available">Available</option>
+                                <option value="Not Available">Not Available</option>
+                                <option value="Not Responding">Not Responding</option>
+                                <option value="Unknown">Unknown</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="meals" role="tabpanel" aria-labelledby="pills-meals-tab">
+                    <h3>Add Meals Distributor</h3>
+                    <form action="{{route("resources.add.meals")}}" method="post">
+                        @csrf
+                        <div class="form-group mb-2">
+                            <input type="text" class="form-control" placeholder="Distributor Name" name="name">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="text" class="form-control" placeholder="Distributor Phone Number" name="phone">
+                        </div>
+                        <div class="input-group mb-2">
+                            <select name="type" class="form-control" multiple>
+                                <option value="">Select type</option>
+                                <option value="Home">Home</option>
+                                <option value="Home-Chef">Home-Chef</option>
+                                <option value="Delivery Kitchen">Delivery Kitchen</option>
+                                <option value="Restaurant">Restaurant</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-2">
+                            <select name="hours[]" class="form-control" multiple>
+                                <option value="">Select delivery hours</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Snacks">Snacks</option>
+                                <option value="Dinner">Dinner</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-2">
+                            <select name="diet[]" class="form-control" multiple>
+                                <option value="">Select diet type</option>
+                                <option value="Covid Diet">Covid Diet</option>
+                                <option value="Veg Diet">Veg Diet</option>
+                                <option value="Non Veg Diet">Non Veg Diet</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-2">
+                            <select name="delivery[]" class="form-control" multiple>
+                                <option value="">Select Delivery type</option>
+                                <option value="Self">Self</option>
+                                <option value="Direct">Direct</option>
+                                <option value="3rd Party">3rd Party</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-2">
+                            <textarea name="description" id="medes" hidden></textarea>
+                            <div class="description" contenteditable="true" placeholder="Description" onkeyup="document.getElementById('medes').value=this.innerHTML;"></div>
+                        </div>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" onkeyup="findAdd(this.value,'mealsmap','#melat','#melon');" placeholder="Address" name="address">
+                        </div>
+                        <div class="mb-2">
+                            <div class="map" id="mealsmap"></div>
+                            <input type="hidden" id="melat" name="lat">
+                            <input type="hidden" id="melon" name="lon">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" placeholder="Pin Code" name="pin_code">
