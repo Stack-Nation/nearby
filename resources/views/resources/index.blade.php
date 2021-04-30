@@ -6,8 +6,9 @@
         border-radius: 3px;
         height:100px;
         border:0.7px solid #DFE5EC;
-        padding: 0.3rem;
+        padding: 0.5rem 1rem;
         overflow: auto;
+        background:#FFFFFF;
     }
     [contenteditable=true]:empty:before{
         content: attr(placeholder);
@@ -27,25 +28,25 @@
             <h2 class="text-center">Add Resource <hr></h2>
             <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="btn active" id="hospital-tab" data-bs-toggle="tab" data-bs-target="#hospital" type="button" role="tab" aria-controls="hospital" aria-selected="true">Hospital Availability</a>
+                    <button class="btn active" id="hospital-tab" data-bs-toggle="tab" data-bs-target="#hospital" type="button" role="tab" aria-controls="hospital" aria-selected="true">Hospital Availability</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="btn" id="plasma-tab" data-bs-toggle="tab" data-bs-target="#plasma" type="button" role="tab" aria-controls="plasma" aria-selected="false">Plasma Donor Availability</a>
+                    <button class="btn" id="plasma-tab" data-bs-toggle="tab" data-bs-target="#plasma" type="button" role="tab" aria-controls="plasma" aria-selected="false">Plasma Donor Availability</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="btn" id="testing-tab" data-bs-toggle="tab" data-bs-target="#testing" type="button" role="tab" aria-controls="testing" aria-selected="false">COVID-19 Testing Facilities</a>
+                    <button class="btn" id="testing-tab" data-bs-toggle="tab" data-bs-target="#testing" type="button" role="tab" aria-controls="testing" aria-selected="false">COVID-19 Testing Facilities</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="btn" id="ambulance-tab" data-bs-toggle="tab" data-bs-target="#ambulance" type="button" role="tab" aria-controls="ambulance" aria-selected="false">Ambulance Service Availability</a>
+                    <button class="btn" id="ambulance-tab" data-bs-toggle="tab" data-bs-target="#ambulance" type="button" role="tab" aria-controls="ambulance" aria-selected="false">Ambulance Service Availability</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="btn" id="vaccination-tab" data-bs-toggle="tab" data-bs-target="#vaccination" type="button" role="tab" aria-controls="vaccination" aria-selected="false">Vaccination Centers</a>
+                    <button class="btn" id="vaccination-tab" data-bs-toggle="tab" data-bs-target="#vaccination" type="button" role="tab" aria-controls="vaccination" aria-selected="false">Vaccination Centers</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="btn" id="oxygen-tab" data-bs-toggle="tab" data-bs-target="#oxygen" type="button" role="tab" aria-controls="oxygen" aria-selected="false">Oxygen Availability</a>
+                    <button class="btn" id="oxygen-tab" data-bs-toggle="tab" data-bs-target="#oxygen" type="button" role="tab" aria-controls="oxygen" aria-selected="false">Oxygen Availability</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="btn" id="medicines-tab" data-bs-toggle="tab" data-bs-target="#medicines" type="button" role="tab" aria-controls="medicines" aria-selected="false">Medicines Availability</a>
+                    <button class="btn" id="medicines-tab" data-bs-toggle="tab" data-bs-target="#medicines" type="button" role="tab" aria-controls="medicines" aria-selected="false">Medicines Availability</button>
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
@@ -388,7 +389,6 @@ function initMap() {
     });
     mapid[$(cmap).attr("id")] = map;
   })
-  console.log(mapid);
 }
 
 async function findAdd (query,tmap,lat,lon){

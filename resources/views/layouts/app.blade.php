@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="theme-color" content="#0134d4">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name') }} | @yield("title")</title>
         <!-- Fonts-->
@@ -23,9 +23,11 @@
             <link rel="stylesheet" href="{{asset("assets/main/css/magnific-popup.css")}}">
             <link rel="stylesheet" href="{{asset("assets/main/css/ion.rangeSlider.min.css")}}">
             <link rel="stylesheet" href="{{asset("assets/main/css/dataTables.bootstrap4.min.css")}}">
-            <link rel="stylesheet" href="{{asset("assets/main/css/apexcharts.css")}}">
+            {{-- <link rel="stylesheet" href="{{asset("assets/main/css/apexcharts.css")}}"> --}}
             <!-- Core Stylesheet-->
             <link rel="stylesheet" href="{{asset("assets/main/style.css")}}">
+            <!-- Web App Manifest-->
+            <link rel="manifest" href="{{asset("assets/main/manifest.json")}}">
         <link type="text/css" href="{{asset("assets/toastr/toastr.min.css")}}" rel="stylesheet" />
         @yield('head')
     </head>
@@ -51,7 +53,7 @@
                 <h6 class="mb-0">@yield("title")</h6>
               </div>
               <!-- Navbar Toggler-->
-              <div class="navbar--toggler" id="affanNavbarToggler"><span class="d-block"></span><span class="d-block"></span><span class="d-block"></span></div>
+              <div @if(Route::is("admin*")) class="navbar--toggler" @endif id="affanNavbarToggler"><span class="d-block"></span><span class="d-block"></span><span class="d-block"></span></div>
             </div>
           </div>
         </div>
@@ -83,8 +85,8 @@
         <script src="{{asset("assets/main/js/default/active.js")}}"></script>
         <script src="{{asset("assets/main/js/default/clipboard.js")}}"></script>
         <!-- Apex Chart-->
-        <script src="{{asset("assets/main/js/apexcharts.min.js")}}"></script>
-        <script src="{{asset("assets/main/js/default/chart-active.js")}}"></script>
+        {{-- <script src="{{asset("assets/main/js/apexcharts.min.js")}}"></script>
+        <script src="{{asset("assets/main/js/default/chart-active.js")}}"></script> --}}
         <!-- PWA-->
         <script src="{{asset("assets/main/js/pwa.js")}}"></script>
         {{--toastr--}}
