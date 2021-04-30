@@ -21,7 +21,6 @@ class CreateHospitalsTable extends Migration
             $table->longText('description');
             $table->integer('beds');
             $table->double('price', 15, 8);
-            $table->string('per');
             $table->mediumText('address');
             $table->string('pin_code');
             $table->string('landmark');

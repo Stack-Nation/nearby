@@ -18,7 +18,6 @@ class CreateOxygenAvailabilitiesTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->double('price', 15, 8);
-            $table->string('per');
             $table->longText('description');
             $table->mediumText('address');
             $table->string('pin_code');

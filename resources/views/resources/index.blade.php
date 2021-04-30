@@ -25,27 +25,27 @@
     <div class="row">
         <div class="col-12">
             <h2 class="text-center">Add Resource <hr></h2>
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="pills-hospital-tab" data-toggle="pill" href="#hospital" role="tab" aria-controls="pills-hospital" aria-selected="true">Hospital Availability</a>
+                    <a class="btn active" id="hospital-tab" data-bs-toggle="tab" data-bs-target="#hospital" type="button" role="tab" aria-controls="hospital" aria-selected="true">Hospital Availability</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-plasma-tab" data-toggle="pill" href="#plasma" role="tab" aria-controls="pills-plasma" aria-selected="false">Plasma Donor Availability</a>
+                    <a class="btn" id="plasma-tab" data-bs-toggle="tab" data-bs-target="#plasma" type="button" role="tab" aria-controls="plasma" aria-selected="false">Plasma Donor Availability</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-testing-tab" data-toggle="pill" href="#testing" role="tab" aria-controls="pills-testing" aria-selected="false">COVID-19 Testing Facilities</a>
+                    <a class="btn" id="testing-tab" data-bs-toggle="tab" data-bs-target="#testing" type="button" role="tab" aria-controls="testing" aria-selected="false">COVID-19 Testing Facilities</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-ambulance-tab" data-toggle="pill" href="#ambulance" role="tab" aria-controls="pills-ambulance" aria-selected="false">Ambulance Service Availability</a>
+                    <a class="btn" id="ambulance-tab" data-bs-toggle="tab" data-bs-target="#ambulance" type="button" role="tab" aria-controls="ambulance" aria-selected="false">Ambulance Service Availability</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-vaccination-tab" data-toggle="pill" href="#vaccination" role="tab" aria-controls="pills-vaccination" aria-selected="false">Vaccination Centers</a>
+                    <a class="btn" id="vaccination-tab" data-bs-toggle="tab" data-bs-target="#vaccination" type="button" role="tab" aria-controls="vaccination" aria-selected="false">Vaccination Centers</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-oxygen-tab" data-toggle="pill" href="#oxygen" role="tab" aria-controls="pills-oxygen" aria-selected="false">Oxygen Availability</a>
+                    <a class="btn" id="oxygen-tab" data-bs-toggle="tab" data-bs-target="#oxygen" type="button" role="tab" aria-controls="oxygen" aria-selected="false">Oxygen Availability</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-medicines-tab" data-toggle="pill" href="#medicines" role="tab" aria-controls="pills-medicines" aria-selected="false">Medicines Availability</a>
+                    <a class="btn" id="medicines-tab" data-bs-toggle="tab" data-bs-target="#medicines" type="button" role="tab" aria-controls="medicines" aria-selected="false">Medicines Availability</a>
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
@@ -71,7 +71,6 @@
                         </div>
                         <div class="input-group mb-2">
                             <input type="number" class="form-control" placeholder="Price" name="price">
-                            <div class="input-group-append"><span class="input-group-text">per</span><input type="text" class="form-control" name="per"></div>
                         </div>
                         <div class="input-group mb-2">
                             <input type="text" class="form-control" onkeyup="findAdd(this.value,'hospitalmap','#hlat','#hlon');" placeholder="Address" name="address">
@@ -156,7 +155,6 @@
                         </div>
                         <div class="input-group mb-2">
                             <input type="number" class="form-control" placeholder="Price" name="price">
-                            <div class="input-group-append"><span class="input-group-text">per</span><input type="text" class="form-control" name="per"></div>
                         </div>
                         <div class="form-group mb-2">
                             <textarea name="description" id="tdes" hidden></textarea>
@@ -283,7 +281,6 @@
                         </div>
                         <div class="input-group mb-2">
                             <input type="number" class="form-control" placeholder="Price" name="price">
-                            <div class="input-group-append"><span class="input-group-text">per</span><input type="text" class="form-control" name="per"></div>
                         </div>
                         <div class="form-group mb-2">
                             <textarea name="description" id="odes" hidden></textarea>

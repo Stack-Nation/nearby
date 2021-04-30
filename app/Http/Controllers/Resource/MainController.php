@@ -25,7 +25,6 @@ class MainController extends Controller
             "description" => "required",
             "beds" => "required",
             "price" => "required",
-            "per" => "required",
             "lat" => "required",
             "lon" => "required",
             "pin_code" => "required",
@@ -39,7 +38,6 @@ class MainController extends Controller
         $resource->description = $request->description;
         $resource->beds = $request->beds;
         $resource->price = $request->price;
-        $resource->per = $request->per;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
@@ -78,7 +76,6 @@ class MainController extends Controller
             "phone" => "required",
             "description" => "required",
             "price" => "required",
-            "per" => "required",
             "lat" => "required",
             "lon" => "required",
             "pin_code" => "required",
@@ -89,7 +86,6 @@ class MainController extends Controller
         $resource->name = $request->name;
         $resource->phone = $request->phone;
         $resource->price = $request->price;
-        $resource->per = $request->per;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
@@ -150,7 +146,6 @@ class MainController extends Controller
             "name" => "required",
             "phone" => "required",
             "price" => "required",
-            "per" => "required",
             "description" => "required",
             "lat" => "required",
             "lon" => "required",
@@ -162,7 +157,6 @@ class MainController extends Controller
         $resource->name = $request->name;
         $resource->phone = $request->phone;
         $resource->price = $request->price;
-        $resource->per = $request->per;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
