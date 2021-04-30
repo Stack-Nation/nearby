@@ -33,6 +33,7 @@
                         <div class="col-8 mb-2">{{$resource->landmark}}</div>
                         <div class="col-4 mb-2">Status</div>
                         <div class="col-8 mb-2">{{$resource->status}}</div>
+                        <div class="col-12"><a href="{{route("resources.edit.medicines",$resource->id)}}" class="btn btn-success btn-block">Edit</a></div>
                         <hr>
                     @endforeach
                 @else

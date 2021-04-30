@@ -13,6 +13,7 @@ use App\Http\Controllers\VolunteerController as Volunteer;
 // Resouces
 use App\Http\Controllers\Resource\MainController as ResourceMain;
 use App\Http\Controllers\Resource\AddController as ResourceAdd;
+use App\Http\Controllers\Resource\EditController as ResourceEdit;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,25 @@ Route::name("resources.")->prefix("resources")->group(function () {
         Route::post("oxygen",[ResourceAdd::class,"oxygen"])->name("oxygen");
         Route::post("medicines",[ResourceAdd::class,"medicines"])->name("medicines");
         Route::post("meals",[ResourceAdd::class,"meals"])->name("meals");
+    });
+    Route::name("edit.")->prefix("edit")->group(function () {
+        Route::get("hospital/{id}",[ResourceEdit::class,"hospital"])->name("hospital");
+        Route::get("plasma/{id}",[ResourceEdit::class,"plasma"])->name("plasma");
+        Route::get("testing/{id}",[ResourceEdit::class,"testing"])->name("testing");
+        Route::get("ambulance/{id}",[ResourceEdit::class,"ambulance"])->name("ambulance");
+        Route::get("vaccination/{id}",[ResourceEdit::class,"vaccination"])->name("vaccination");
+        Route::get("oxygen/{id}",[ResourceEdit::class,"oxygen"])->name("oxygen");
+        Route::get("medicines/{id}",[ResourceEdit::class,"medicines"])->name("medicines");
+        Route::get("meals/{id}",[ResourceEdit::class,"meals"])->name("meals");
+
+        Route::post("hospital/{id}",[ResourceEdit::class,"hospitalUpdate"])->name("hospital");
+        Route::post("plasma/{id}",[ResourceEdit::class,"plasmaUpdate"])->name("plasma");
+        Route::post("testing/{id}",[ResourceEdit::class,"testingUpdate"])->name("testing");
+        Route::post("ambulance/{id}",[ResourceEdit::class,"ambulanceUpdate"])->name("ambulance");
+        Route::post("vaccination/{id}",[ResourceEdit::class,"vaccinationUpdate"])->name("vaccination");
+        Route::post("oxygen/{id}",[ResourceEdit::class,"oxygenUpdate"])->name("oxygen");
+        Route::post("medicines/{id}",[ResourceEdit::class,"medicinesUpdate"])->name("medicines");
+        Route::post("meals/{id}",[ResourceEdit::class,"mealsUpdate"])->name("meals");
     });
 });
 

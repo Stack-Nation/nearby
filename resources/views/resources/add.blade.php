@@ -378,7 +378,7 @@
                             <input type="text" class="form-control" placeholder="Distributor Phone Number" name="phone">
                         </div>
                         <div class="input-group mb-2">
-                            <select name="type" class="form-control" multiple>
+                            <select name="type" class="form-control">
                                 <option value="">Select type</option>
                                 <option value="Home">Home</option>
                                 <option value="Home-Chef">Home-Chef</option>

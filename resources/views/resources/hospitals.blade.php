@@ -28,7 +28,7 @@
                         <div class="col-4 mb-2">Number of beds</div>
                         <div class="col-8 mb-2">{{$resource->beds}}</div>
                         <div class="col-4 mb-2">Price</div>
-                        <div class="col-8 mb-2">{{$resource->price}} per {{$resource->per}}</div>
+                        <div class="col-8 mb-2">{{$resource->price}}</div>
                         <div class="col-4 mb-2">Address</div>
                         <div class="col-8 mb-2"><span class="address" data-lon="{{json_decode($resource->address)->lon}}" data-lat="{{json_decode($resource->address)->lat}}"></span></div>
                         <div class="col-4 mb-2">Pin Code</div>
@@ -37,6 +37,7 @@
                         <div class="col-8 mb-2">{{$resource->landmark}}</div>
                         <div class="col-4 mb-2">Status</div>
                         <div class="col-8 mb-2">{{$resource->status}}</div>
+                        <div class="col-12"><a href="{{route("resources.edit.hospital",$resource->id)}}" class="btn btn-success btn-block">Edit</a></div>
                         <hr>
                     @endforeach
                 @else

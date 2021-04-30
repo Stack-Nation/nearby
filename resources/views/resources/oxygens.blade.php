@@ -22,7 +22,7 @@
                         <div class="col-4 mb-2">Facility Phone Number</div>
                         <div class="col-8 mb-2">{{$resource->phone}}</div>
                         <div class="col-4 mb-2">Price</div>
-                        <div class="col-8 mb-2">{{$resource->price}} per {{$resource->per}}</div>
+                        <div class="col-8 mb-2">{{$resource->price}}</div>
                         <div class="col-4 mb-2">Description</div>
                         <div class="col-8 mb-2">{!!$resource->description!!}</div>
                         <div class="col-4 mb-2">Address</div>
@@ -33,6 +33,7 @@
                         <div class="col-8 mb-2">{{$resource->landmark}}</div>
                         <div class="col-4 mb-2">Status</div>
                         <div class="col-8 mb-2">{{$resource->status}}</div>
+                        <div class="col-12"><a href="{{route("resources.edit.oxygen",$resource->id)}}" class="btn btn-success btn-block">Edit</a></div>
                         <hr>
                     @endforeach
                 @else
