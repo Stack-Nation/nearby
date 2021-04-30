@@ -207,7 +207,7 @@ class AddController extends Controller
             "landmark" => "required",
             "status" => "required",
         ]);
-        $resource = new Medicine;
+        $resource = new Meal;
         $resource->name = $request->name;
         $resource->phone = $request->phone;
         $resource->type = $request->type;
