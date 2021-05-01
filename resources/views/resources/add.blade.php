@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section("title","Add Resource")
+@section("title","Add Resources")
 @section('head')
 <style>
     .description{
@@ -22,38 +22,52 @@
 </style>
 @endsection
 @section('content')
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="text-center">Add Resource <hr></h2>
-            <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="btn active" id="hospital-tab" data-bs-toggle="tab" data-bs-target="#hospital" type="button" role="tab" aria-controls="hospital" aria-selected="true">Hospital Availability</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="btn" id="plasma-tab" data-bs-toggle="tab" data-bs-target="#plasma" type="button" role="tab" aria-controls="plasma" aria-selected="false">Plasma Donor Availability</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="btn" id="testing-tab" data-bs-toggle="tab" data-bs-target="#testing" type="button" role="tab" aria-controls="testing" aria-selected="false">COVID-19 Testing Facilities</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="btn" id="ambulance-tab" data-bs-toggle="tab" data-bs-target="#ambulance" type="button" role="tab" aria-controls="ambulance" aria-selected="false">Ambulance Service Availability</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="btn" id="vaccination-tab" data-bs-toggle="tab" data-bs-target="#vaccination" type="button" role="tab" aria-controls="vaccination" aria-selected="false">Vaccination Centers</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="btn" id="oxygen-tab" data-bs-toggle="tab" data-bs-target="#oxygen" type="button" role="tab" aria-controls="oxygen" aria-selected="false">Oxygen Availability</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="btn" id="medicines-tab" data-bs-toggle="tab" data-bs-target="#medicines" type="button" role="tab" aria-controls="medicines" aria-selected="false">Medicines Availability</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="btn" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals" type="button" role="tab" aria-controls="meals" aria-selected="false">Meals Distributor</button>
-                </li>
-            </ul>
+<div class="page-content-wrapper py-3">
+      <div class="container">
+        <!-- Element Heading-->
+        <div class="element-heading">
+          <h6>Add Resources</h6>
+        </div>
+      </div>
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+          <div class="nav rounded-lg " id="pills-tab" role="tablist">
+          <div class="card">
+          <div class="card-body">
+          <h6>Click on Buttons to show the forms:</h6>
+      
+                
+                    <a class="btn btn-primary" id="hospital-tab" data-bs-toggle="tab" data-bs-target="#hospital" type="button" role="tab" aria-controls="hospital" aria-selected="true">Hospital Resource</a>
+         
+                
+                    <a class="btn btn-warning" id="plasma-tab" data-bs-toggle="tab" data-bs-target="#plasma" type="button" role="tab" aria-controls="plasma" aria-selected="false">Plasma Donor</a>
+         
+                
+                    <a class="btn btn-danger" id="testing-tab" data-bs-toggle="tab" data-bs-target="#testing" type="button" role="tab" aria-controls="testing" aria-selected="false"> Testing Facilities</a>
+                
+               
+                    <a class="btn btn-dark" id="ambulance-tab" data-bs-toggle="tab" data-bs-target="#ambulance" type="button" role="tab" aria-controls="ambulance" aria-selected="false">Ambulance Service </a>
+     
+                   <br> <br>
+               
+                    <a class="btn btn-primary" id="vaccination-tab" data-bs-toggle="tab" data-bs-target="#vaccination" type="button" role="tab" aria-controls="vaccination" aria-selected="false">Vaccination Centers</a>
+              
+               
+                    <a class="btn btn-danger" id="oxygen-tab" data-bs-toggle="tab" data-bs-target="#oxygen" type="button" role="tab" aria-controls="oxygen" aria-selected="false">Oxygen Cylinders</a>
+         
+                
+                    <a class="btn btn-dark" id="medicines-tab" data-bs-toggle="tab" data-bs-target="#medicines" type="button" role="tab" aria-controls="medicines" aria-selected="false">Medicines Availability</a>
+              
+                
+                    <a class="btn btn-warning" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals" type="button" role="tab" aria-controls="meals" aria-selected="false">Meals Distributors</a>
+                    <br><br>
+     </div>
+                   
+</div>
+</div>
             <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="hospital" role="tabpanel" aria-labelledby="pills-hospital-tab">
+                <div class="tab-pane fade show" id="hospital" role="tabpanel" aria-labelledby="pills-hospital-tab">
                     <h3>Add Hospital Availability</h3>
                     <form action="{{route("resources.add.hospital")}}" method="post">
                         @csrf
@@ -377,6 +391,7 @@
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" placeholder="Distributor Phone Number" name="phone">
                         </div>
+        
                         <div class="input-group mb-2">
                             <select name="type" class="form-control">
                                 <option value="">Select type</option>
@@ -443,7 +458,9 @@
                     </form>
                 </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 </div>
 @endsection

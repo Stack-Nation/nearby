@@ -4,7 +4,7 @@
 <!-- Hero Slides-->
 <div class="owl-carousel-one owl-carousel">
 
-  <div class="single-hero-slide bg-overlay" style="background-image: url('img/bg-img/31.jpg')">
+  <div class="single-hero-slide bg-overlay" style="background-image: url('assets/main/img/bg-img/31.jpg')">
     <div class="slide-content h-100 d-flex align-items-center text-center">
       <div class="container">
         <h4 class="text-white mb-1" data-animation="fadeInUp" data-delay="100ms" data-wow-duration="500ms">#IndiaFightsCorona</h4>
@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <div class="single-hero-slide bg-overlay" style="background-image: url('img/bg-img/32.jpg')">
+  <div class="single-hero-slide bg-overlay" style="background-image: url('assets/main/img/bg-img/32.jpg')">
     <div class="slide-content h-100 d-flex align-items-center text-center">
       <div class="container">
         <h4 class="text-white mb-1" data-animation="fadeInUp" data-delay="100ms" data-wow-duration="1000ms">{{config("app.name")}} on Mission</h4>
@@ -63,7 +63,7 @@
       <div class="card bg-primary mb-3 shadow-sm bg-gradient direction-rtl">
         <div class="card-body">
           <img class="card-bg-img center" width="128" height="128" src="{{asset("assets/icons/hospital-large.png")}}" alt="">
-          <h2 class="text-white">Hospital Availability</h2>
+          <h2 class="text-white">Hospital Resources</h2>
         <a class="btn btn-warning" href="{{route("resources.hospital")}}">Find Availability</a>   
        </div>
       </div>
@@ -81,7 +81,7 @@
       <div class="card bg-danger mb-3 shadow-sm bg-gradient direction-rtl">
         <div class="card-body">
           <img class="card-bg-img center" width="128" height="128" src="{{asset("assets/icons/vaccine-large.png")}}" alt="">
-          <h2 class="text-white">Vaccination Availability</h2>
+          <h2 class="text-white">Vaccination Centres</h2>
         <a class="btn btn-warning" href="{{route("resources.vaccination")}}">Find Availability</a>   
        </div>
       </div>
@@ -156,7 +156,7 @@
       <div class="card bg-dark mb-3 shadow-sm bg-gradient direction-rtl">
         <div class="card-body">
           <h2 class="text-white">{{config("app.name")}}, An Initiative by Stack Nation </h2>
-          <p class="text-white mb-4">In Collaboration with Lo Rent Platform & TAM Enterprises.</p><a class="btn btn-success" href="https://stacknation.org/">Visit Now</a>
+          <p class="text-white mb-4">In Collaboration with Lo Rent Platform & TAM Enterprises.</p><a class="btn btn-success" href="https://stacknation.org/health-point">Visit Now</a>
         </div>
       </div>
     </div>

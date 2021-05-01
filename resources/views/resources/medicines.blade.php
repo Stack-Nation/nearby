@@ -22,7 +22,7 @@
                         <div class="col-4 mb-2">Contact Phone Number</div>
                         <div class="col-8 mb-2">{{$resource->phone}}</div>
                         <div class="col-4 mb-2">Availabile Types</div>
-                        <div class="col-8 mb-2">{{join(", ",json_decode($resource->categories))}}</div>
+                        <div class="col-8 mb-2">{{$resource->categories}}</div>
                         <div class="col-4 mb-2">Description</div>
                         <div class="col-8 mb-2">{!!$resource->description!!}</div>
                         <div class="col-4 mb-2">Address</div>
