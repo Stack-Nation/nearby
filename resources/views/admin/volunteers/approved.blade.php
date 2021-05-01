@@ -31,6 +31,7 @@
                 </tbody>
             </table>
             @endif
+            {{$volunteers->links()}}
         </div>
     </div>
 </div>

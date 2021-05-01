@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\VolunteerController as AdminVolunteer;
 use App\Http\Controllers\Admin\ResourceController as AdminResource;
 use App\Http\Controllers\Admin\DisclaimerController as AdminDisclaimer;
+use App\Http\Controllers\Admin\HelplineController as AdminHelpline;
 
 // Volunteer Application
 use App\Http\Controllers\VolunteerController as Volunteer;
@@ -30,6 +31,7 @@ use App\Http\Controllers\Resource\EditController as ResourceEdit;
 */
 
 Route::get('/',[Main::class,"index"])->name("index");
+require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () {
     Route::get("dashboard",[AdminDashboard::class,"index"])->name("dashboard");
@@ -61,6 +63,11 @@ Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () 
     Route::get("disclaimer",[AdminDisclaimer::class,"index"])->name("disclaimer");
     Route::post("disclaimer",[AdminDisclaimer::class,"store"])->name("disclaimer");
     Route::post("disclaimer/edit",[AdminDisclaimer::class,"edit"])->name("disclaimer.edit");
+
+    Route::get("helpline",[AdminHelpline::class,"index"])->name("helpline");
+    Route::post("helpline",[AdminHelpline::class,"store"])->name("helpline");
+    Route::post("helpline/edit",[AdminHelpline::class,"edit"])->name("helpline.edit");
+    Route::post("helpline/delete",[AdminHelpline::class,"delete"])->name("helpline.delete");
 });
 
 
@@ -108,4 +115,3 @@ Route::name("resources.")->prefix("resources")->group(function () {
     });
 });
 
-require __DIR__.'/auth.php';
