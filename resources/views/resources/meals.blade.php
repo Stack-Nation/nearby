@@ -24,11 +24,11 @@
                         <div class="col-4 mb-2">Type</div>
                         <div class="col-8 mb-2">{{$resource->type}}</div>
                         <div class="col-4 mb-2">Delivery Hours</div>
-                        <div class="col-8 mb-2">{{$resource->hours}}</div>
+                        <div class="col-8 mb-2">{{join(", ",json_decode($resource->hours))}}</div>
                         <div class="col-4 mb-2">Diet Type</div>
-                        <div class="col-8 mb-2">{{$resource->diet}}</div>
+                        <div class="col-8 mb-2">{{join(", ",json_decode($resource->diet))}}</div>
                         <div class="col-4 mb-2">Delivery Type</div>
-                        <div class="col-8 mb-2">{{$resource->delivery}}</div>
+                        <div class="col-8 mb-2">{{join(", ",json_decode($resource->delivery))}}</div>
                         <div class="col-4 mb-2">Description</div>
                         <div class="col-8 mb-2">{!!$resource->description!!}</div>
                         <div class="col-4 mb-2">Address</div>
