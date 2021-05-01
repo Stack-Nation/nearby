@@ -23,8 +23,18 @@
                 <li><a href="{{route("admin.volunteers.approved")}}">Approved Volunteers</a></li>
               </ul>
             </li>
-            <li>
-              <a href="{{route("admin.resources.index")}}">Resources</a>
+            <li class="affan-dropdown-menu">
+              <a href="#">Resources</a>
+              <ul>
+                <li><a href="{{route("admin.resources.hospital")}}">Hospitals</a></li>
+                <li><a href="{{route("admin.resources.plasma")}}">Plasma Donors</a></li>
+                <li><a href="{{route("admin.resources.testing")}}">Covid-19 Testings</a></li>
+                <li><a href="{{route("admin.resources.ambulance")}}">Ambulances</a></li>
+                <li><a href="{{route("admin.resources.vaccination")}}">Vaccination Centers</a></li>
+                <li><a href="{{route("admin.resources.oxygen")}}">Oxygen Distributors</a></li>
+                <li><a href="{{route("admin.resources.medicines")}}">Medicine Providers</a></li>
+                <li><a href="{{route("admin.resources.meals")}}">Meal Providers</a></li>
+              </ul>
             </li>
             <li>
               <a href="#logout" onclick="document.getElementById('logoutF').submit();">Logout</a>

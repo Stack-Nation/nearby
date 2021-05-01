@@ -39,7 +39,23 @@ Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () 
         Route::post("delete",[AdminVolunteer::class,"delete"])->name("delete");
     });
     Route::name("resources.")->prefix("resources")->group(function () {
-        Route::get("/",[AdminResource::class,"index"])->name("index");
+        Route::get("hospital",[AdminResource::class,"hospitals"])->name("hospital");
+        Route::get("plasma",[AdminResource::class,"plasma"])->name("plasma");
+        Route::get("testing",[AdminResource::class,"testings"])->name("testing");
+        Route::get("ambulance",[AdminResource::class,"ambulances"])->name("ambulance");
+        Route::get("vaccination",[AdminResource::class,"vaccinations"])->name("vaccination");
+        Route::get("oxygen",[AdminResource::class,"oxygens"])->name("oxygen");
+        Route::get("medicines",[AdminResource::class,"medicines"])->name("medicines");
+        Route::get("meals",[AdminResource::class,"meals"])->name("meals");
+
+        Route::get("hospital/verify/{id}",[AdminResource::class,"hospitalVerify"])->name("hospital.verify");
+        Route::get("plasma/verify/{id}",[AdminResource::class,"plasmaVerify"])->name("plasma.verify");
+        Route::get("testing/verify/{id}",[AdminResource::class,"testingVerify"])->name("testing.verify");
+        Route::get("ambulance/verify/{id}",[AdminResource::class,"ambulanceVerify"])->name("ambulance.verify");
+        Route::get("vaccination/verify/{id}",[AdminResource::class,"vaccinationVerify"])->name("vaccination.verify");
+        Route::get("oxygen/verify/{id}",[AdminResource::class,"oxygenVerify"])->name("oxygen.verify");
+        Route::get("medicines/verify/{id}",[AdminResource::class,"medicinesVerify"])->name("medicines.verify");
+        Route::get("meals/verify/{id}",[AdminResource::class,"mealsVerify"])->name("meals.verify");
     });
 });
 
