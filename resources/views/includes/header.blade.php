@@ -1,4 +1,4 @@
-
+<?php $menus = \App\Models\Menu::latest()->get(); ?>
     <!-- Footer Nav-->
     <div class="footer-nav-area" id="footerNav">
       <div class="container px-0">
@@ -22,6 +22,13 @@
 <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
 </svg><span>Dashboard</span></a></li>
 @endif
+        @if($menus->count()>0)
+        @foreach ($menus as $menu)
+        <li><a href="{{$menu->link}}"><svg width="20" height="20" viewBox="0 0 16 16" class="{{$menu->icon}}" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M14.5 13.5h-13A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5zm-13 1A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z"/>
+</svg><span>{{$menu->title}}</span></a></li>
+        @endforeach
+        @endif
           </ul>
         </div>
       </div>
