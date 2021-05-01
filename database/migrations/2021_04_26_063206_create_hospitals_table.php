@@ -20,6 +20,12 @@ class CreateHospitalsTable extends Migration
             $table->string('phone');
             $table->longText('description');
             $table->integer('beds');
+            $table->integer('bed_oxygen');
+            $table->integer('bed_nono');
+            $table->integer('bed_ac');
+            $table->integer('bed_noac');
+            $table->integer('icu');
+            $table->integer('vantilator');
             $table->double('price', 15, 8);
             $table->mediumText('address');
             $table->string('pin_code');

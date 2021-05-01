@@ -87,6 +87,24 @@
                         <div class="form-group mb-2">
                             <input type="number" class="form-control" placeholder="Number of beds" name="beds">
                         </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" placeholder="Beds with oxygen support" name="bed_oxygen">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" placeholder="Beds with no oxygen support" name="bed_nono">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" placeholder="Ac beds" name="bed_ac">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" placeholder="Non ac beds" name="bed_noac">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" placeholder="ICU Availability" name="icu">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" placeholder="Vaccant Vantilators" name="vantilator">
+                        </div>
                         <div class="input-group mb-2">
                             <input type="number" class="form-control" placeholder="Price" name="price">
                         </div>

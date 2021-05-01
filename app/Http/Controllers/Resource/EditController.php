@@ -28,12 +28,18 @@ class EditController extends Controller
             "phone" => "required",
             "description" => "required",
             "beds" => "required",
+            "bed_oxygen" => "required",
+            "bed_nono" => "required",
+            "bed_ac" => "required",
+            "bed_noac" => "required",
+            "icu" => "required",
+            "vantilator" => "required",
             "price" => "required",
             "lat" => "required",
             "lon" => "required",
             "pin_code" => "required",
             "landmark" => "required",
-            "status" => "required",
+            "status" => "nullable",
         ]);
         $resource = Hospital::findOrFail($id);
         $resource->name = $request->name;
@@ -41,11 +47,17 @@ class EditController extends Controller
         $resource->phone = $request->phone;
         $resource->description = $request->description;
         $resource->beds = $request->beds;
+        $resource->bed_oxygen = $request->bed_oxygen;
+        $resource->bed_nono = $request->bed_nono;
+        $resource->bed_ac = $request->bed_ac;
+        $resource->bed_noac = $request->bed_noac;
+        $resource->icu = $request->icu;
+        $resource->vantilator = $request->vantilator;
         $resource->price = $request->price;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
+        $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
         $request->session()->flash('success', "Resource edited");
         return redirect()->back();
@@ -65,7 +77,7 @@ class EditController extends Controller
             "lon" => "required",
             "pin_code" => "required",
             "landmark" => "required",
-            "status" => "required",
+            "status" => "nullable",
         ]);
         $resource = PlasmaDonor::findOrFail($id);
         $resource->name = $request->name;
@@ -75,7 +87,7 @@ class EditController extends Controller
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
+        $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
         $request->session()->flash('success', "Resource edited");
         return redirect()->back();
@@ -96,7 +108,7 @@ class EditController extends Controller
             "lon" => "required",
             "pin_code" => "required",
             "landmark" => "required",
-            "status" => "required",
+            "status" => "nullable",
         ]);
         $resource = TestingFacility::findOrFail($id);
         $resource->name = $request->name;
@@ -106,7 +118,7 @@ class EditController extends Controller
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
+        $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
         $request->session()->flash('success', "Resource edited");
         return redirect()->back();
@@ -126,7 +138,7 @@ class EditController extends Controller
             "lon" => "required",
             "pin_code" => "required",
             "landmark" => "required",
-            "status" => "required",
+            "status" => "nullable",
         ]);
         $resource = Ambulance::findOrFail($id);
         $resource->name = $request->name;
@@ -135,7 +147,7 @@ class EditController extends Controller
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
+        $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
         $request->session()->flash('success', "Resource edited");
         return redirect()->back();
@@ -155,7 +167,7 @@ class EditController extends Controller
             "lon" => "required",
             "pin_code" => "required",
             "landmark" => "required",
-            "status" => "required",
+            "status" => "nullable",
         ]);
         $resource = VaccinationCenter::findOrFail($id);
         $resource->name = $request->name;
@@ -164,7 +176,7 @@ class EditController extends Controller
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
+        $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
         $request->session()->flash('success', "Resource edited");
         return redirect()->back();
@@ -185,7 +197,7 @@ class EditController extends Controller
             "lon" => "required",
             "pin_code" => "required",
             "landmark" => "required",
-            "status" => "required",
+            "status" => "nullable",
         ]);
         $resource = OxygenAvailability::findOrFail($id);
         $resource->name = $request->name;
@@ -195,7 +207,7 @@ class EditController extends Controller
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
+        $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
         $request->session()->flash('success', "Resource edited");
         return redirect()->back();
@@ -216,7 +228,7 @@ class EditController extends Controller
             "lon" => "required",
             "pin_code" => "required",
             "landmark" => "required",
-            "status" => "required",
+            "status" => "nullable",
         ]);
         $resource = Medicine::findOrFail($id);
         $resource->name = $request->name;
@@ -226,7 +238,7 @@ class EditController extends Controller
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
+        $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
         $request->session()->flash('success', "Resource edited");
         return redirect()->back();
@@ -263,7 +275,7 @@ class EditController extends Controller
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
-        $resource->status = $request->status;
+        $resource->status = $request->status===NULL?$resource->status:$request->status;
         $request->session()->flash('success', "Resource edited");
         return redirect()->back();
     }

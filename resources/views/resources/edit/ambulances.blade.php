@@ -55,7 +55,7 @@
                             <input type="text" class="form-control" value="{{$ambulance->landmark}}" placeholder="Landmark" name="landmark">
                         </div>
                         <div class="form-group mb-2">
-                            <input type="checkbox" value="Verified By Third Party" id="status" @if($ambulance->status==="Verified") checked @endif>
+                            <input type="checkbox" name="status" value="Verified By Third Party" id="status" @if($ambulance->status==="Verified By Third Party") checked @endif>
                             <label for="status">Verified?</label>
                         </div>
                         <button class="btn btn-primary">Submit</button>

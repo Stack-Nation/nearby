@@ -66,7 +66,7 @@
                         <div class="form-group mb-2">
                             <div class="form-group mb-2">
                                 <div class="form-group mb-2">
-                                    <input type="checkbox" value="Verified By Third Party" id="status" @if($medicine->status==="Verified") checked @endif>
+                                    <input type="checkbox" name="status" value="Verified By Third Party" id="status" @if($medicine->status==="Verified By Third Party") checked @endif>
                                     <label for="status">Verified?</label>
                                 </div>
                             </div>

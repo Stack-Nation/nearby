@@ -25,6 +25,12 @@ class AddController extends Controller
             "phone" => "required",
             "description" => "required",
             "beds" => "required",
+            "bed_oxygen" => "required",
+            "bed_nono" => "required",
+            "bed_ac" => "required",
+            "bed_noac" => "required",
+            "icu" => "required",
+            "vantilator" => "required",
             "price" => "required",
             "lat" => "required",
             "lon" => "required",
@@ -38,6 +44,12 @@ class AddController extends Controller
         $resource->phone = $request->phone;
         $resource->description = $request->description;
         $resource->beds = $request->beds;
+        $resource->bed_oxygen = $request->bed_oxygen;
+        $resource->bed_nono = $request->bed_nono;
+        $resource->bed_ac = $request->bed_ac;
+        $resource->bed_noac = $request->bed_noac;
+        $resource->icu = $request->icu;
+        $resource->vantilator = $request->vantilator;
         $resource->price = $request->price;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
         $resource->pin_code = $request->pin_code;

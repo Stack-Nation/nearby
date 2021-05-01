@@ -46,6 +46,24 @@
                         <div class="form-group mb-2">
                             <input type="number" class="form-control" value="{{$hospital->beds}}" placeholder="Number of beds" name="beds">
                         </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" value="{{$hospital->bed_oxygen}}" placeholder="Beds with oxygen support" name="bed_oxygen">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" value="{{$hospital->bed_nono}}" placeholder="Beds with no oxygen support" name="bed_nono">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" value="{{$hospital->bed_ac}}" placeholder="Ac beds" name="bed_ac">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" value="{{$hospital->bed_noac}}" placeholder="Non ac beds" name="bed_noac">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" value="{{$hospital->icu}}" placeholder="ICU Availability" name="icu">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="number" class="form-control" value="{{$hospital->vantilator}}" placeholder="Vaccant Vantilators" name="vantilator">
+                        </div>
                         <div class="input-group mb-2">
                             <input type="number" class="form-control" value="{{$hospital->price}}" placeholder="Price" name="price">
                         </div>
@@ -64,7 +82,7 @@
                             <input type="text" class="form-control" value="{{$hospital->landmark}}" placeholder="Landmark" name="landmark">
                         </div>
                         <div class="form-group mb-2">
-                            <input type="status" class="form-control" value="Verified By Third Party" id="status" @if($hospital->status==="Verified") checked @endif>
+                            <input type="checkbox" name="status" value="Verified By Third Party" id="status" @if($hospital->status==="Verified By Third Party") checked @endif>
                             <label for="status">Verified?</label>
                         </div>
                         <button class="btn btn-primary">Submit</button>
