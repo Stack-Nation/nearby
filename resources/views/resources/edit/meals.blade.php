@@ -90,7 +90,7 @@
                         </div>
                         <div class="form-group mb-2">
                             <div class="form-group mb-2">
-                                <input type="checkbox" value="Verified" id="status" @if($meal->status==="Verified") checked @endif>
+                                <input type="checkbox" value="Verified By Third Party" id="status" @if($meal->status==="Verified") checked @endif>
                                 <label for="status">Verified?</label>
                             </div>
                         </div>

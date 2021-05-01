@@ -64,7 +64,7 @@
                             <input type="text" class="form-control" value="{{$hospital->landmark}}" placeholder="Landmark" name="landmark">
                         </div>
                         <div class="form-group mb-2">
-                            <input type="status" class="form-control" value="Verified" id="status" @if($hospital->status==="Verified") checked @endif>
+                            <input type="status" class="form-control" value="Verified By Third Party" id="status" @if($hospital->status==="Verified") checked @endif>
                             <label for="status">Verified?</label>
                         </div>
                         <button class="btn btn-primary">Submit</button>

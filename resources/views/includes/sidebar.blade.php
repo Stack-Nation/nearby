@@ -24,6 +24,9 @@
               </ul>
             </li>
             <li>
+              <a href="{{route("admin.resources.index")}}">Resources</a>
+            </li>
+            <li>
               <a href="#logout" onclick="document.getElementById('logoutF').submit();">Logout</a>
             </li>
           </ul>
