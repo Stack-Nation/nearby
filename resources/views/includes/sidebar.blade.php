@@ -43,6 +43,9 @@
               <a href="{{route("admin.helpline")}}">Helpline</a>
             </li>
             <li>
+              <a href="{{route("admin.menu")}}">Menu Links</a>
+            </li>
+            <li>
               <a href="#logout" onclick="document.getElementById('logoutF').submit();">Logout</a>
             </li>
           </ul>

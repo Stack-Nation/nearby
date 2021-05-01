@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\VolunteerController as AdminVolunteer;
 use App\Http\Controllers\Admin\ResourceController as AdminResource;
 use App\Http\Controllers\Admin\DisclaimerController as AdminDisclaimer;
 use App\Http\Controllers\Admin\HelplineController as AdminHelpline;
+use App\Http\Controllers\Admin\MenuController as AdminMenu;
 
 // Volunteer Application
 use App\Http\Controllers\VolunteerController as Volunteer;
@@ -71,6 +72,11 @@ Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () 
     Route::post("helpline",[AdminHelpline::class,"store"])->name("helpline");
     Route::post("helpline/edit",[AdminHelpline::class,"edit"])->name("helpline.edit");
     Route::post("helpline/delete",[AdminHelpline::class,"delete"])->name("helpline.delete");
+
+    Route::get("menu",[AdminMenu::class,"index"])->name("menu");
+    Route::post("menu",[AdminMenu::class,"store"])->name("menu");
+    Route::post("menu/edit",[AdminMenu::class,"edit"])->name("menu.edit");
+    Route::post("menu/delete",[AdminMenu::class,"delete"])->name("menu.delete");
 });
 
 Route::get("helplines",[Helpline::class,"index"])->name("helpline");
