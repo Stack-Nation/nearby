@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section("title","Admin Dashboard")
 @section('content')
-Dashboard    
+<div class="container">
+    Dashboard
+</div>
 @endsection

@@ -6,6 +6,7 @@ use App\Http\Controllers\MainController as Main;
 
 // Admin
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
+use App\Http\Controllers\Admin\VolunteerController as AdminVolunteer;
 
 // Volunteer Application
 use App\Http\Controllers\VolunteerController as Volunteer;
@@ -30,6 +31,12 @@ Route::get('/',[Main::class,"index"])->name("index");
 
 Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () {
     Route::get("dashboard",[AdminDashboard::class,"index"])->name("dashboard");
+    Route::name("volunteers.")->prefix("volunteers")->group(function () {
+        Route::get("pending",[AdminVolunteer::class,"pending"])->name("pending");
+        Route::get("approved",[AdminVolunteer::class,"approved"])->name("approved");
+        Route::post("approve",[AdminVolunteer::class,"approve"])->name("approve");
+        Route::post("delete",[AdminVolunteer::class,"delete"])->name("delete");
+    });
 });
 
 
