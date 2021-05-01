@@ -14,6 +14,9 @@ use App\Http\Controllers\Admin\HelplineController as AdminHelpline;
 // Volunteer Application
 use App\Http\Controllers\VolunteerController as Volunteer;
 
+// Helpline
+use App\Http\Controllers\HelplineController as Helpline;
+
 // Resouces
 use App\Http\Controllers\Resource\MainController as ResourceMain;
 use App\Http\Controllers\Resource\AddController as ResourceAdd;
@@ -70,6 +73,7 @@ Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () 
     Route::post("helpline/delete",[AdminHelpline::class,"delete"])->name("helpline.delete");
 });
 
+Route::get("helplines",[Helpline::class,"index"])->name("helpline");
 
 Route::get("apply-volunteer",[Volunteer::class,"index"])->name("apply-volunteer");
 Route::post("apply-volunteer",[Volunteer::class,"apply"])->name("apply-volunteer");
