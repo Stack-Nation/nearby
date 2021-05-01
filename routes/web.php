@@ -8,6 +8,7 @@ use App\Http\Controllers\MainController as Main;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\VolunteerController as AdminVolunteer;
 use App\Http\Controllers\Admin\ResourceController as AdminResource;
+use App\Http\Controllers\Admin\DisclaimerController as AdminDisclaimer;
 
 // Volunteer Application
 use App\Http\Controllers\VolunteerController as Volunteer;
@@ -57,6 +58,9 @@ Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () 
         Route::get("medicines/verify/{id}",[AdminResource::class,"medicinesVerify"])->name("medicines.verify");
         Route::get("meals/verify/{id}",[AdminResource::class,"mealsVerify"])->name("meals.verify");
     });
+    Route::get("disclaimer",[AdminDisclaimer::class,"index"])->name("disclaimer");
+    Route::post("disclaimer",[AdminDisclaimer::class,"store"])->name("disclaimer");
+    Route::post("disclaimer/edit",[AdminDisclaimer::class,"edit"])->name("disclaimer.edit");
 });
 
 

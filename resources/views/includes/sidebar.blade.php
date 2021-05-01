@@ -37,6 +37,9 @@
               </ul>
             </li>
             <li>
+              <a href="{{route("admin.disclaimer")}}">Disclaimer</a>
+            </li>
+            <li>
               <a href="#logout" onclick="document.getElementById('logoutF').submit();">Logout</a>
             </li>
           </ul>

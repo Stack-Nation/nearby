@@ -183,3 +183,33 @@
 </div> --}}
 <div class="pb-3"></div>
 @endsection
+@if($disclaimer!==NULL)
+@section('modals')
+<div class="modal fade" id="disclaimerModal" tabindex="-1" aria-labelledby="disclaimerLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h3>{{$disclaimer->title}}</h3>
+          <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{{asset("assets/disclaimer/".$disclaimer->image)}}" alt="Disclaimer" class="img-fluid">
+        <div>
+          {!!$disclaimer->description!!}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
+@section('scripts')
+    <script>
+      window.onload = () => {
+        $("#disclaimerModal").modal("show");
+      }
+    </script>
+@endsection
+@endif
