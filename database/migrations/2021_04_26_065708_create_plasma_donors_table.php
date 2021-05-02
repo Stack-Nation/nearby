@@ -15,14 +15,13 @@ class CreatePlasmaDonorsTable extends Migration
     {
         Schema::create('plasma_donors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('blood_group');
-            $table->longText('description');
-            $table->mediumText('address');
-            $table->string('pin_code');
-            $table->string('landmark');
-            $table->string('status');
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('blood_group')->nullable();
+            $table->longText('description')->nullable();
+            $table->mediumText('address')->nullable();
+            $table->mediumText('landmark')->nullable();
+            $table->string('status')->nullable();
             $table->integer('reports')->default(0);
             $table->boolean('visibility')->default(1);
             $table->boolean('verification')->default(0);

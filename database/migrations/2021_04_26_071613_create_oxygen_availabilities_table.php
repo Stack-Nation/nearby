@@ -15,14 +15,13 @@ class CreateOxygenAvailabilitiesTable extends Migration
     {
         Schema::create('oxygen_availabilities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->double('price', 15, 8);
-            $table->longText('description');
-            $table->mediumText('address');
-            $table->string('pin_code');
-            $table->string('landmark');
-            $table->string('status');
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->double('price', 15, 8)->nullable();
+            $table->longText('description')->nullable();
+            $table->mediumText('address')->nullable();
+            $table->mediumText('landmark')->nullable();
+            $table->string('status')->nullable();
             $table->integer('reports')->default(0);
             $table->boolean('visibility')->default(1);
             $table->boolean('verification')->default(0);

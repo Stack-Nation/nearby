@@ -15,17 +15,16 @@ class CreateMealsTable extends Migration
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('type');
-            $table->string('hours');
-            $table->string('diet');
-            $table->string('delivery');
-            $table->longText('description');
-            $table->mediumText('address');
-            $table->string('pin_code');
-            $table->string('landmark');
-            $table->string('status');
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('type')->nullable();
+            $table->string('hours')->nullable();
+            $table->string('diet')->nullable();
+            $table->string('delivery')->nullable();
+            $table->longText('description')->nullable();
+            $table->mediumText('address')->nullable();
+            $table->mediumText('landmark')->nullable();
+            $table->string('status')->nullable();
             $table->integer('reports')->default(0);
             $table->boolean('visibility')->default(1);
             $table->boolean('verification')->default(0);
