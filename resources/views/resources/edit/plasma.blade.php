@@ -45,11 +45,8 @@
                         </div>
                         <div class="mb-2">
                             <div class="map" id="plasmamap"></div>
-                            <input type="hidden" id="olat" value="{{json_decode($plasma->address)->lat}}" name="lat">
-                            <input type="hidden" id="olon" value="{{json_decode($plasma->address)->lon}}" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" value="{{$plasma->pin_code}}" placeholder="Pin Code" name="pin_code">
+                            <input type="hidden" id="olat" value="{{$plasma->address==NULL?"":json_decode($plasma->address)->lat}}" name="lat">
+                            <input type="hidden" id="olon" value="{{$plasma->address==NULL?"":json_decode($plasma->address)->lon}}" name="lon">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" value="{{$plasma->landmark}}" placeholder="Landmark" name="landmark">

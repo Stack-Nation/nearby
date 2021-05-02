@@ -79,11 +79,8 @@
                         </div>
                         <div class="mb-2">
                             <div class="map" id="mealsmap"></div>
-                            <input type="hidden" id="melat" value="{{json_decode($meal->address)->lat}}" name="lat">
-                            <input type="hidden" id="melon" value="{{json_decode($meal->address)->lat}}" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" value="{{$meal->pin_code}}" placeholder="Pin Code" name="pin_code">
+                            <input type="hidden" id="melat" value="{{$meal->address==NULL?"":json_decode($meal->address)->lat}}" name="lat">
+                            <input type="hidden" id="melon" value="{{$meal->address==NULL?"":json_decode($meal->address)->lat}}" name="lon">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" value="{{$meal->landmark}}" placeholder="Landmark" name="landmark">

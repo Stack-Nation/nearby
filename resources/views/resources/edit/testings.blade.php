@@ -48,11 +48,8 @@
                         </div>
                         <div class="mb-2">
                             <div class="map" id="testingmap"></div>
-                            <input type="hidden" id="hlat" value="{{json_decode($testing->address)->lat}}" name="lat">
-                            <input type="hidden" id="hlon" value="{{json_decode($testing->address)->lon}}" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" value="{{$testing->pin_code}}" placeholder="Pin Code" name="pin_code">
+                            <input type="hidden" id="hlat" value="{{$testing->address==NULL?"":json_decode($testing->address)->lat}}" name="lat">
+                            <input type="hidden" id="hlon" value="{{$testing->address==NULL?"":json_decode($testing->address)->lon}}" name="lon">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" value="{{$testing->landmark}}" placeholder="Landmark" name="landmark">

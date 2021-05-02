@@ -45,11 +45,8 @@
                         </div>
                         <div class="mb-2">
                             <div class="map" id="vaccinationmap"></div>
-                            <input type="hidden" id="olat" value="{{json_decode($vaccination->address)->lat}}" name="lat">
-                            <input type="hidden" id="olon" value="{{json_decode($vaccination->address)->lon}}" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" value="{{$vaccination->pin_code}}" placeholder="Pin Code" name="pin_code">
+                            <input type="hidden" id="olat" value="{{$vaccination->address==NULL?"":json_decode($vaccination->address)->lat}}" name="lat">
+                            <input type="hidden" id="olon" value="{{$vaccination->address==NULL?"":json_decode($vaccination->address)->lon}}" name="lon">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" value="{{$vaccination->landmark}}" placeholder="Landmark" name="landmark">

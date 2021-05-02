@@ -48,11 +48,8 @@
                         </div>
                         <div class="mb-2">
                             <div class="map" id="oxygenmap"></div>
-                            <input type="hidden" id="olat" value="{{json_decode($oxygen->address)->lat}}" name="lat">
-                            <input type="hidden" id="olon" value="{{json_decode($oxygen->address)->lon}}" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" value="{{$oxygen->pin_code}}" placeholder="Pin Code" name="pin_code">
+                            <input type="hidden" id="olat" value="{{$oxygen->address==NULL?"":json_decode($oxygen->address)->lat}}" name="lat">
+                            <input type="hidden" id="olon" value="{{$oxygen->address==NULL?"":json_decode($oxygen->address)->lon}}" name="lon">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" value="{{$oxygen->landmark}}" placeholder="Landmark" name="landmark">

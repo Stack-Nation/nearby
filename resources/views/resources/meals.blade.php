@@ -22,28 +22,46 @@
                 </div>
                     @foreach ($meals as $resource)
                     <div class="row">
+                        @if($resource->name)
                         <div class="col-4 mb-2">Contact Name</div>
                         <div class="col-8 mb-2">{{$resource->name}}</div>
+                        @endif
+                        @if($resource->phone)
                         <div class="col-4 mb-2">Contact Phone Number</div>
                         <div class="col-8 mb-2">{{$resource->phone}}</div>
+                        @endif
+                        @if($resource->type)
                         <div class="col-4 mb-2">Type</div>
                         <div class="col-8 mb-2">{{$resource->type}}</div>
+                        @endif
+                        @if($resource->hours)
                         <div class="col-4 mb-2">Delivery Hours</div>
                         <div class="col-8 mb-2">{{$resource->hours}}</div>
+                        @endif
+                        @if($resource->diet)
                         <div class="col-4 mb-2">Diet Type</div>
                         <div class="col-8 mb-2">{{$resource->diet}}</div>
+                        @endif
+                        @if($resource->delivery)
                         <div class="col-4 mb-2">Delivery Type</div>
                         <div class="col-8 mb-2">{{$resource->delivery}}</div>
+                        @endif
+                        @if($resource->description)
                         <div class="col-4 mb-2">Description</div>
                         <div class="col-8 mb-2">{!!$resource->description!!}</div>
+                        @endif
+                        @if($resource->address)
                         <div class="col-4 mb-2">Address</div>
                         <div class="col-8 mb-2"><span class="address" data-lon="{{json_decode($resource->address)->lon}}" data-lat="{{json_decode($resource->address)->lat}}"></span></div>
-                        <div class="col-4 mb-2">Pin Code</div>
-                        <div class="col-8 mb-2">{{$resource->pin_code}}</div>
+                        @endif
+                        @if($resource->landmark)
                         <div class="col-4 mb-2">Landmark</div>
                         <div class="col-8 mb-2">{{$resource->landmark}}</div>
+                        @endif
+                        @if($resource->status)
                         <div class="col-4 mb-2">Status</div>
                         <div class="col-8 mb-2">{{$resource->status}}</div>
+                        @endif
                         <div class="col-12"><a href="{{route("resources.edit.meals",$resource->id)}}" class="btn btn-success btn-block">Edit</a></div>
                     </div>
                         <hr>
@@ -103,6 +121,7 @@
         let infowindow;
         @if($meals->count()>0)
             @foreach($meals as $meal)
+            @if($meals->address)
             pos = {
                 lat: {{json_decode($meal->address)->lat}},
                 lng: {{json_decode($meal->address)->lon}},
@@ -123,6 +142,7 @@
             () => {
             handleLocationError(true, infoWindow, map.getCenter());
             }
+            @endif
             @endforeach
         @endif
 

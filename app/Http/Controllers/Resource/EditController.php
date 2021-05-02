@@ -23,22 +23,21 @@ class EditController extends Controller
     }
     public function hospitalUpdate(Request $request,$id){
         $this->validate($request,[
-            "name" => "required",
-            "contact_name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "beds" => "required",
-            "bed_oxygen" => "required",
-            "bed_nono" => "required",
-            "bed_ac" => "required",
-            "bed_noac" => "required",
-            "icu" => "required",
-            "vantilator" => "required",
-            "price" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
+            "name" => "nullable",
+            "contact_name" => "nullable",
+            "phone" => "nullable",
+            "description" => "nullable",
+            "beds" => "nullable",
+            "bed_oxygen" => "nullable",
+            "bed_nono" => "nullable",
+            "bed_ac" => "nullable",
+            "bed_noac" => "nullable",
+            "icu" => "nullable",
+            "vantilator" => "nullable",
+            "price" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            "landmark" => "nullable",
             "status" => "nullable",
         ]);
         $resource = Hospital::findOrFail($id);
@@ -55,7 +54,6 @@ class EditController extends Controller
         $resource->vantilator = $request->vantilator;
         $resource->price = $request->price;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
         $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
@@ -70,13 +68,12 @@ class EditController extends Controller
     }
     public function plasmaUpdate(Request $request,$id){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            "landmark" => "nullable",
             "status" => "nullable",
         ]);
         $resource = PlasmaDonor::findOrFail($id);
@@ -85,7 +82,6 @@ class EditController extends Controller
         $resource->blood_group = $request->blood_group;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
         $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
@@ -100,14 +96,13 @@ class EditController extends Controller
     }
     public function testingUpdate(Request $request,$id){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "price" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "description" => "nullable",
+            "price" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            "landmark" => "nullable",
             "status" => "nullable",
         ]);
         $resource = TestingFacility::findOrFail($id);
@@ -116,7 +111,6 @@ class EditController extends Controller
         $resource->price = $request->price;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
         $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
@@ -131,13 +125,12 @@ class EditController extends Controller
     }
     public function ambulanceUpdate(Request $request,$id){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            "landmark" => "nullable",
             "status" => "nullable",
         ]);
         $resource = Ambulance::findOrFail($id);
@@ -145,7 +138,6 @@ class EditController extends Controller
         $resource->phone = $request->phone;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
         $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
@@ -160,13 +152,12 @@ class EditController extends Controller
     }
     public function vaccinationUpdate(Request $request,$id){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            "landmark" => "nullable",
             "status" => "nullable",
         ]);
         $resource = VaccinationCenter::findOrFail($id);
@@ -174,7 +165,6 @@ class EditController extends Controller
         $resource->phone = $request->phone;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
         $resource->landmark = $request->landmark;
         $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
@@ -189,14 +179,14 @@ class EditController extends Controller
     }
     public function oxygenUpdate(Request $request,$id){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "price" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "price" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
             "status" => "nullable",
         ]);
         $resource = OxygenAvailability::findOrFail($id);
@@ -205,7 +195,7 @@ class EditController extends Controller
         $resource->price = $request->price;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
@@ -220,14 +210,14 @@ class EditController extends Controller
     }
     public function medicinesUpdate(Request $request,$id){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "categories" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "categories" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
             "status" => "nullable",
         ]);
         $resource = Medicine::findOrFail($id);
@@ -236,7 +226,7 @@ class EditController extends Controller
         $resource->categories = json_encode($request->categories);
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status===NULL?$resource->status:$request->status;
         $resource->save();
@@ -251,18 +241,18 @@ class EditController extends Controller
     }
     public function mealsUpdate(Request $request,$id){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "type" => "required",
-            "hours" => "required",
-            "diet" => "required",
-            "delivery" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "type" => "nullable",
+            "hours" => "nullable",
+            "diet" => "nullable",
+            "delivery" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
+            "status" => "nullable",
         ]);
         $resource = Meal::findOrFail($id);
         $resource->name = $request->name;
@@ -273,7 +263,7 @@ class EditController extends Controller
         $resource->delivery = json_encode($request->delivery);
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status===NULL?$resource->status:$request->status;
         $request->session()->flash('success', "Resource edited");

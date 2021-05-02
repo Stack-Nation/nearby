@@ -22,22 +22,34 @@
                 </div>
                     @foreach ($testings as $resource)
                     <div class="row">
+                        @if($resource->name)
                         <div class="col-4 mb-2">Facility Name</div>
                         <div class="col-8 mb-2">{{$resource->name}}</div>
+                        @endif
+                        @if($resource->phone)
                         <div class="col-4 mb-2">Facility Phone Number</div>
                         <div class="col-8 mb-2">{{$resource->phone}}</div>
+                        @endif
+                        @if($resource->price)
                         <div class="col-4 mb-2">Price</div>
                         <div class="col-8 mb-2">{{$resource->price}}</div>
+                        @endif
+                        @if($resource->description)
                         <div class="col-4 mb-2">Description</div>
                         <div class="col-8 mb-2">{!!$resource->description!!}</div>
+                        @endif
+                        @if($resource->address)
                         <div class="col-4 mb-2">Address</div>
                         <div class="col-8 mb-2"><span class="address" data-lon="{{json_decode($resource->address)->lon}}" data-lat="{{json_decode($resource->address)->lat}}"></span></div>
-                        <div class="col-4 mb-2">Pin Code</div>
-                        <div class="col-8 mb-2">{{$resource->pin_code}}</div>
+                        @endif
+                        @if($resource->landmark)
                         <div class="col-4 mb-2">Landmark</div>
                         <div class="col-8 mb-2">{{$resource->landmark}}</div>
+                        @endif
+                        @if($resource->status)
                         <div class="col-4 mb-2">Status</div>
                         <div class="col-8 mb-2">{{$resource->status}}</div>
+                        @endif
                         <div class="col-12"><a href="{{route("resources.edit.testing",$resource->id)}}" class="btn btn-success btn-block">Edit</a></div>
                         <div class="col-12"><a href="{{route("admin.resources.testing.verify",$resource->id)}}" class="btn btn-warning mt-2">Verify</a></div>
                     </div>

@@ -117,9 +117,6 @@
                             <input type="hidden" id="hlon" name="lon">
                         </div>
                         <div class="form-group mb-2">
-                            <input type="text" class="form-control" placeholder="Pin Code" name="pin_code">
-                        </div>
-                        <div class="form-group mb-2">
                             <input type="text" class="form-control" placeholder="Landmark" name="landmark">
                         </div>
                         <div class="form-group mb-2">
@@ -159,9 +156,6 @@
                             <div class="map" id="plasmamap"></div>
                             <input type="hidden" id="plat" name="lat">
                             <input type="hidden" id="plon" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" placeholder="Pin Code" name="pin_code">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" placeholder="Landmark" name="landmark">
@@ -205,9 +199,6 @@
                             <input type="hidden" id="tlon" name="lon">
                         </div>
                         <div class="form-group mb-2">
-                            <input type="text" class="form-control" placeholder="Pin Code" name="pin_code">
-                        </div>
-                        <div class="form-group mb-2">
                             <input type="text" class="form-control" placeholder="Landmark" name="landmark">
                         </div>
                         <div class="form-group mb-2">
@@ -246,9 +237,6 @@
                             <input type="hidden" id="alon" name="lon">
                         </div>
                         <div class="form-group mb-2">
-                            <input type="text" class="form-control" placeholder="Pin Code" name="pin_code">
-                        </div>
-                        <div class="form-group mb-2">
                             <input type="text" class="form-control" placeholder="Landmark" name="landmark">
                         </div>
                         <div class="form-group mb-2">
@@ -285,9 +273,6 @@
                             <div class="map" id="vaccinationmap"></div>
                             <input type="hidden" id="vlat" name="lat">
                             <input type="hidden" id="vlon" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" placeholder="Pin Code" name="pin_code">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" placeholder="Landmark" name="landmark">
@@ -329,9 +314,6 @@
                             <div class="map" id="oxygenmap"></div>
                             <input type="hidden" id="olat" name="lat">
                             <input type="hidden" id="olon" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" placeholder="Pin Code" name="pin_code">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" placeholder="Landmark" name="landmark">
@@ -379,9 +361,6 @@
                             <div class="map" id="medicinesmap"></div>
                             <input type="hidden" id="mlat" name="lat">
                             <input type="hidden" id="mlon" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" placeholder="Pin Code" name="pin_code">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" placeholder="Landmark" name="landmark">
@@ -455,9 +434,6 @@
                             <div class="map" id="mealsmap"></div>
                             <input type="hidden" id="melat" name="lat">
                             <input type="hidden" id="melon" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" placeholder="Pin Code" name="pin_code">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" placeholder="Landmark" name="landmark">

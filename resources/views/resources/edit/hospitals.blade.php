@@ -72,11 +72,8 @@
                         </div>
                         <div class="mb-2">
                             <div class="map" id="hospitalmap"></div>
-                            <input type="hidden" id="hlat" value="{{json_decode($hospital->address)->lat}}" name="lat">
-                            <input type="hidden" id="hlon" value="{{json_decode($hospital->address)->lon}}" name="lon">
-                        </div>
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control" value="{{$hospital->pin_code}}" placeholder="Pin Code" name="pin_code">
+                            <input type="hidden" id="hlat" value="{{$hospital->address==NULL?"":json_decode($hospital->address)->lat}}" name="lat">
+                            <input type="hidden" id="hlon" value="{{$hospital->address==NULL?"":json_decode($hospital->address)->lon}}" name="lon">
                         </div>
                         <div class="form-group mb-2">
                             <input type="text" class="form-control" value="{{$hospital->landmark}}" placeholder="Landmark" name="landmark">

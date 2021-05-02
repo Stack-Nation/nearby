@@ -20,23 +20,23 @@ class AddController extends Controller
     }
     public function hospital(Request $request){
         $this->validate($request,[
-            "name" => "required",
-            "contact_name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "beds" => "required",
-            "bed_oxygen" => "required",
-            "bed_nono" => "required",
-            "bed_ac" => "required",
-            "bed_noac" => "required",
-            "icu" => "required",
-            "vantilator" => "required",
-            "price" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+            "name" => "nullable",
+            "contact_name" => "nullable",
+            "phone" => "nullable",
+            "description" => "nullable",
+            "beds" => "nullable",
+            "bed_oxygen" => "nullable",
+            "bed_nono" => "nullable",
+            "bed_ac" => "nullable",
+            "bed_noac" => "nullable",
+            "icu" => "nullable",
+            "vantilator" => "nullable",
+            "price" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
+            "status" => "nullable",
         ]);
         $resource = new Hospital;
         $resource->name = $request->name;
@@ -52,7 +52,7 @@ class AddController extends Controller
         $resource->vantilator = $request->vantilator;
         $resource->price = $request->price;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status;
         $resource->save();
@@ -61,14 +61,14 @@ class AddController extends Controller
     }
     public function plasma(Request $request){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
+            "status" => "nullable",
         ]);
         $resource = new PlasmaDonor;
         $resource->name = $request->name;
@@ -76,7 +76,7 @@ class AddController extends Controller
         $resource->blood_group = $request->blood_group;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status;
         $resource->save();
@@ -85,15 +85,15 @@ class AddController extends Controller
     }
     public function testing(Request $request){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "price" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "description" => "nullable",
+            "price" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
+            "status" => "nullable",
         ]);
         $resource = new TestingFacility;
         $resource->name = $request->name;
@@ -101,7 +101,7 @@ class AddController extends Controller
         $resource->price = $request->price;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status;
         $resource->save();
@@ -110,21 +110,21 @@ class AddController extends Controller
     }
     public function ambulance(Request $request){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
+            "status" => "nullable",
         ]);
         $resource = new Ambulance;
         $resource->name = $request->name;
         $resource->phone = $request->phone;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status;
         $resource->save();
@@ -133,21 +133,21 @@ class AddController extends Controller
     }
     public function vaccination(Request $request){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
+            "status" => "nullable",
         ]);
         $resource = new VaccinationCenter;
         $resource->name = $request->name;
         $resource->phone = $request->phone;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status;
         $resource->save();
@@ -156,15 +156,15 @@ class AddController extends Controller
     }
     public function oxygen(Request $request){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "price" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "price" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
+            "status" => "nullable",
         ]);
         $resource = new OxygenAvailability;
         $resource->name = $request->name;
@@ -172,7 +172,7 @@ class AddController extends Controller
         $resource->price = $request->price;
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status;
         $resource->save();
@@ -181,15 +181,15 @@ class AddController extends Controller
     }
     public function medicines(Request $request){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "categories" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "categories" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
+            "status" => "nullable",
         ]);
         $resource = new Medicine;
         $resource->name = $request->name;
@@ -197,7 +197,7 @@ class AddController extends Controller
         $resource->categories = json_encode($request->categories);
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status;
         $resource->save();
@@ -206,18 +206,18 @@ class AddController extends Controller
     }
     public function meals(Request $request){
         $this->validate($request,[
-            "name" => "required",
-            "phone" => "required",
-            "type" => "required",
-            "hours" => "required",
-            "diet" => "required",
-            "delivery" => "required",
-            "description" => "required",
-            "lat" => "required",
-            "lon" => "required",
-            "pin_code" => "required",
-            "landmark" => "required",
-            "status" => "required",
+            "name" => "nullable",
+            "phone" => "nullable",
+            "type" => "nullable",
+            "hours" => "nullable",
+            "diet" => "nullable",
+            "delivery" => "nullable",
+            "description" => "nullable",
+            "lat" => "nullable",
+            "lon" => "nullable",
+            
+            "landmark" => "nullable",
+            "status" => "nullable",
         ]);
         $resource = new Meal;
         $resource->name = $request->name;
@@ -228,7 +228,7 @@ class AddController extends Controller
         $resource->delivery = json_encode($request->delivery);
         $resource->description = $request->description;
         $resource->address = json_encode(["lat"=>$request->lat,"lon"=>$request->lon]);
-        $resource->pin_code = $request->pin_code;
+        
         $resource->landmark = $request->landmark;
         $resource->status = $request->status;
         $resource->save();
