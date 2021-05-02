@@ -39,7 +39,7 @@ class ResourceController extends Controller
     
         for ($i = 0; $i < count($resources); $i ++)
         {
-            Hospital::firstOrCreate($resources[$i]);
+            Hospital::create($resources[$i]);
         }
         $request->session()->flash('success', "Resource Added");
         return redirect()->back();
@@ -68,7 +68,7 @@ class ResourceController extends Controller
     
         for ($i = 0; $i < count($resources); $i ++)
         {
-            PlasmaDonor::firstOrCreate($resources[$i]);
+            PlasmaDonor::create($resources[$i]);
         }
         $request->session()->flash('success', "Resource Added");
         return redirect()->back();
@@ -97,7 +97,7 @@ class ResourceController extends Controller
     
         for ($i = 0; $i < count($resources); $i ++)
         {
-            TestingFacility::firstOrCreate($resources[$i]);
+            TestingFacility::create($resources[$i]);
         }
         $request->session()->flash('success', "Resource Added");
         return redirect()->back();
@@ -126,7 +126,7 @@ class ResourceController extends Controller
     
         for ($i = 0; $i < count($resources); $i ++)
         {
-            Ambulance::firstOrCreate($resources[$i]);
+            Ambulance::create($resources[$i]);
         }
         $request->session()->flash('success', "Resource Added");
         return redirect()->back();
@@ -155,7 +155,7 @@ class ResourceController extends Controller
     
         for ($i = 0; $i < count($resources); $i ++)
         {
-            VaccinationCenter::firstOrCreate($resources[$i]);
+            VaccinationCenter::create($resources[$i]);
         }
         $request->session()->flash('success', "Resource Added");
         return redirect()->back();
@@ -184,7 +184,7 @@ class ResourceController extends Controller
     
         for ($i = 0; $i < count($resources); $i ++)
         {
-            OxygenAvailability::firstOrCreate($resources[$i]);
+            OxygenAvailability::create($resources[$i]);
         }
         $request->session()->flash('success', "Resource Added");
         return redirect()->back();
@@ -213,7 +213,7 @@ class ResourceController extends Controller
     
         for ($i = 0; $i < count($resources); $i ++)
         {
-            Medicine::firstOrCreate($resources[$i]);
+            Medicine::create($resources[$i]);
         }
         $request->session()->flash('success', "Resource Added");
         return redirect()->back();
@@ -242,7 +242,7 @@ class ResourceController extends Controller
     
         for ($i = 0; $i < count($resources); $i ++)
         {
-            Meal::firstOrCreate($resources[$i]);
+            Meal::create($resources[$i]);
         }
         $request->session()->flash('success', "Resource Added");
         return redirect()->back();
