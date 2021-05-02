@@ -16,7 +16,12 @@
         <div class="col-lg-5">
             <div id="ambulance" class="row mt-2">
                 @if($ambulances->count()>0)
+                <input type="text" class="form-control" placeholder="Search City" onkeyup="search(this.value)">
+                <div id="searchr" class="row">
+
+                </div>
                     @foreach ($ambulances as $resource)
+                    <div class="row">
                         <div class="col-4 mb-2">Contact Name</div>
                         <div class="col-8 mb-2">{{$resource->name}}</div>
                         <div class="col-4 mb-2">Contact Phone Number</div>
@@ -33,6 +38,7 @@
                         <div class="col-8 mb-2">{{$resource->status}}</div>
                         <div class="col-12"><a href="{{route("resources.edit.ambulance",$resource->id)}}" class="btn btn-success btn-block">Edit</a></div>
                         <div class="col-12"><a href="{{route("admin.resources.ambulance.verify",$resource->id)}}" class="btn btn-warning mt-2">Verify</a></div>
+                    </div>
                         <hr>
                     @endforeach
                 @else
@@ -49,6 +55,8 @@
 <script async src="https://maps.googleapis.com/maps/api/js?key={{env("GOOGLE_MAPS_API")}}&callback=initMap"></script>
 <script>
     let map;
+    let resource;
+    let saddresses = [];
 
     function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
@@ -155,6 +163,8 @@
             if (status === "OK") {
             if (results[0]) {
                 $(content).html(results[0].formatted_address);
+                resource = $($($(content).parent()).parent()).html();
+                saddresses[results[0].formatted_address] = resource;
             } else {
                 window.alert("No results found");
             }
@@ -162,6 +172,20 @@
             console.log("Geocoder failed due to: " + status);
             }
         });
+    }
+    function search(address){
+        const addresses = Object.keys(saddresses);
+        let regex;
+        $("#searchr").html("");
+        if(address!=null && address!=""){
+            addresses.map((addresse,key) => {
+                regex = new RegExp( address, 'i' );
+                if(addresse.match(regex)){
+                    $("#searchr").append(saddresses[addresse]);
+                    $("#searchr").append("<hr/>");
+                }
+            })
+        }
     }
 </script>
 @endsection
