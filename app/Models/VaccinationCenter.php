@@ -9,4 +9,5 @@ class VaccinationCenter extends Model
 {
     use HasFactory;
     protected $table="vaccination_centers";
+    protected $guarded = [];
 }

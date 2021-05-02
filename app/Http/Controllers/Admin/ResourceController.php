@@ -29,6 +29,21 @@ class ResourceController extends Controller
         $request->session()->flash('success', "Resource Verified");
         return redirect()->back();
     }
+    public function hospitalsAdd(Request $request){
+        $this->validate($request,[
+            "file" => "required"
+        ]);
+        $file = $_FILES["file"]["tmp_name"];
+    
+        $resources = $this->csvToArray($file);
+    
+        for ($i = 0; $i < count($resources); $i ++)
+        {
+            Hospital::firstOrCreate($resources[$i]);
+        }
+        $request->session()->flash('success', "Resource Added");
+        return redirect()->back();
+    }
     public function plasma(){
         $plasma = PlasmaDonor::where("visibility",1)->latest()->get();
         return view("admin.resources.plasma")->with([
@@ -41,6 +56,21 @@ class ResourceController extends Controller
         $resource->verified = 1;
         $resource->save();
         $request->session()->flash('success', "Resource Verified");
+        return redirect()->back();
+    }
+    public function plamaAdd(Request $request){
+        $this->validate($request,[
+            "file" => "required"
+        ]);
+        $file = $_FILES["file"]["tmp_name"];
+    
+        $resources = $this->csvToArray($file);
+    
+        for ($i = 0; $i < count($resources); $i ++)
+        {
+            PlasmaDonor::firstOrCreate($resources[$i]);
+        }
+        $request->session()->flash('success', "Resource Added");
         return redirect()->back();
     }
     public function testings(){
@@ -57,6 +87,21 @@ class ResourceController extends Controller
         $request->session()->flash('success', "Resource Verified");
         return redirect()->back();
     }
+    public function testingsAdd(Request $request){
+        $this->validate($request,[
+            "file" => "required"
+        ]);
+        $file = $_FILES["file"]["tmp_name"];
+    
+        $resources = $this->csvToArray($file);
+    
+        for ($i = 0; $i < count($resources); $i ++)
+        {
+            TestingFacility::firstOrCreate($resources[$i]);
+        }
+        $request->session()->flash('success', "Resource Added");
+        return redirect()->back();
+    }
     public function ambulances(){
         $ambulances = Ambulance::where("visibility",1)->latest()->get();
         return view("admin.resources.ambulances")->with([
@@ -69,6 +114,21 @@ class ResourceController extends Controller
         $resource->verified = 1;
         $resource->save();
         $request->session()->flash('success', "Resource Verified");
+        return redirect()->back();
+    }
+    public function ambulancesAdd(Request $request){
+        $this->validate($request,[
+            "file" => "required"
+        ]);
+        $file = $_FILES["file"]["tmp_name"];
+    
+        $resources = $this->csvToArray($file);
+    
+        for ($i = 0; $i < count($resources); $i ++)
+        {
+            Ambulance::firstOrCreate($resources[$i]);
+        }
+        $request->session()->flash('success', "Resource Added");
         return redirect()->back();
     }
     public function vaccinations(){
@@ -85,6 +145,21 @@ class ResourceController extends Controller
         $request->session()->flash('success', "Resource Verified");
         return redirect()->back();
     }
+    public function vaccinationsAdd(Request $request){
+        $this->validate($request,[
+            "file" => "required"
+        ]);
+        $file = $_FILES["file"]["tmp_name"];
+    
+        $resources = $this->csvToArray($file);
+    
+        for ($i = 0; $i < count($resources); $i ++)
+        {
+            VaccinationCenter::firstOrCreate($resources[$i]);
+        }
+        $request->session()->flash('success', "Resource Added");
+        return redirect()->back();
+    }
     public function oxygens(){
         $oxygens = OxygenAvailability::where("visibility",1)->latest()->get();
         return view("admin.resources.oxygens")->with([
@@ -97,6 +172,21 @@ class ResourceController extends Controller
         $resource->verified = 1;
         $resource->save();
         $request->session()->flash('success', "Resource Verified");
+        return redirect()->back();
+    }
+    public function oxygensAdd(Request $request){
+        $this->validate($request,[
+            "file" => "required"
+        ]);
+        $file = $_FILES["file"]["tmp_name"];
+    
+        $resources = $this->csvToArray($file);
+    
+        for ($i = 0; $i < count($resources); $i ++)
+        {
+            OxygenAvailability::firstOrCreate($resources[$i]);
+        }
+        $request->session()->flash('success', "Resource Added");
         return redirect()->back();
     }
     public function medicines(){
@@ -113,6 +203,21 @@ class ResourceController extends Controller
         $request->session()->flash('success', "Resource Verified");
         return redirect()->back();
     }
+    public function medicinesAdd(Request $request){
+        $this->validate($request,[
+            "file" => "required"
+        ]);
+        $file = $_FILES["file"]["tmp_name"];
+    
+        $resources = $this->csvToArray($file);
+    
+        for ($i = 0; $i < count($resources); $i ++)
+        {
+            Medicine::firstOrCreate($resources[$i]);
+        }
+        $request->session()->flash('success', "Resource Added");
+        return redirect()->back();
+    }
     public function meals(){
         $meals = Meal::where("visibility",1)->latest()->get();
         return view("admin.resources.meals")->with([
@@ -126,5 +231,40 @@ class ResourceController extends Controller
         $resource->save();
         $request->session()->flash('success', "Resource Verified");
         return redirect()->back();
+    }
+    public function mealsAdd(Request $request){
+        $this->validate($request,[
+            "file" => "required"
+        ]);
+        $file = $_FILES["file"]["tmp_name"];
+    
+        $resources = $this->csvToArray($file);
+    
+        for ($i = 0; $i < count($resources); $i ++)
+        {
+            Meal::firstOrCreate($resources[$i]);
+        }
+        $request->session()->flash('success', "Resource Added");
+        return redirect()->back();
+    }
+    function csvToArray($filename = '', $delimiter = ','){
+        if (!file_exists($filename) || !is_readable($filename))
+            return false;
+    
+        $header = null;
+        $data = array();
+        if (($handle = fopen($filename, 'r')) !== false)
+        {
+            while (($row = fgetcsv($handle, 1000, $delimiter)) !== false)
+            {
+                if (!$header)
+                    $header = $row;
+                else
+                    $data[] = array_combine($header, $row);
+            }
+            fclose($handle);
+        }
+    
+        return $data;
     }
 }

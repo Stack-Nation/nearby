@@ -9,4 +9,5 @@ class TestingFacility extends Model
 {
     use HasFactory;
     protected $table = "testing_facilities";
+    protected $guarded = [];
 }

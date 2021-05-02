@@ -9,4 +9,5 @@ class OxygenAvailability extends Model
 {
     use HasFactory;
     protected $table = "oxygen_availabilities";
+    protected $guarded = [];
 }

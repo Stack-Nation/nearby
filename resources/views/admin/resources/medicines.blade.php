@@ -15,6 +15,11 @@
         </div>
         <div class="col-lg-5">
             <div id="medicines" class="row mt-2">
+                <form action="{{route("admin.resources.medicines.add")}}" enctype="multipart/form-data" method="post">
+                    @csrf
+                    <input type="file" name="file" id="file" onchange="this.form.submit()" hidden>
+                    <button class="btn btn-info" type="button" onclick="document.getElementById('file').click();">Add file</button>
+                </form>
                 @if($medicines->count()>0)
                 <input type="text" class="form-control" placeholder="Search City" onkeyup="search(this.value)">
                 <div id="searchr" class="row">
@@ -110,6 +115,7 @@
         let infowindow;
         @if($medicines->count()>0)
             @foreach($medicines as $medicine)
+            @if($medicine->address)
             pos = {
                 lat: {{json_decode($medicine->address)->lat}},
                 lng: {{json_decode($medicine->address)->lon}},
@@ -130,6 +136,7 @@
             () => {
             handleLocationError(true, infoWindow, map.getCenter());
             }
+            @endif
             @endforeach
         @endif
 

@@ -55,6 +55,15 @@ Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () 
         Route::get("medicines",[AdminResource::class,"medicines"])->name("medicines");
         Route::get("meals",[AdminResource::class,"meals"])->name("meals");
 
+        Route::post("hospital/add",[AdminResource::class,"hospitalsAdd"])->name("hospital.add");
+        Route::post("plasma/add",[AdminResource::class,"plasmaAdd"])->name("plasma.add");
+        Route::post("testing/add",[AdminResource::class,"testingsAdd"])->name("testing.add");
+        Route::post("ambulance/add",[AdminResource::class,"ambulancesAdd"])->name("ambulance.add");
+        Route::post("vaccination/add",[AdminResource::class,"vaccinationsAdd"])->name("vaccination.add");
+        Route::post("oxygen/add",[AdminResource::class,"oxygensAdd"])->name("oxygen.add");
+        Route::post("medicines/add",[AdminResource::class,"medicinesAdd"])->name("medicines.add");
+        Route::post("meals/add",[AdminResource::class,"mealsAdd"])->name("meals.add");
+
         Route::get("hospital/verify/{id}",[AdminResource::class,"hospitalVerify"])->name("hospital.verify");
         Route::get("plasma/verify/{id}",[AdminResource::class,"plasmaVerify"])->name("plasma.verify");
         Route::get("testing/verify/{id}",[AdminResource::class,"testingVerify"])->name("testing.verify");

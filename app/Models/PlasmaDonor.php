@@ -9,4 +9,5 @@ class PlasmaDonor extends Model
 {
     use HasFactory;
     protected $table="plasma_donors";
+    protected $guarded = [];
 }
