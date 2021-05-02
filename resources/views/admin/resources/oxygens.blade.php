@@ -21,7 +21,8 @@
                     <button class="btn btn-info" type="button" onclick="document.getElementById('file').click();">Add file</button>
                 </form>
                 @if($oxygens->count()>0)
-                <input type="text" class="form-control" placeholder="Search City" onkeyup="search(this.value)">
+                <input type="text" class="form-control" placeholder="Search Address" onkeyup="search(this.value)">
+                <input type="text" class="form-control" placeholder="Search City" onkeyup="searchC(this.value)">
                 <div id="searchr" class="row">
 
                 </div>
@@ -49,7 +50,7 @@
                         @endif
                         @if($resource->landmark)
                         <div class="col-4 mb-2">Landmark</div>
-                        <div class="col-8 mb-2">{{$resource->landmark}}</div>
+                        <div class="col-8 mb-2 city">{{$resource->landmark}}</div>
                         @endif
                         @if($resource->status)
                         <div class="col-4 mb-2">Status</div>
@@ -203,6 +204,20 @@
                 regex = new RegExp( address, 'i' );
                 if(addresse.match(regex)){
                     $("#searchr").append(saddresses[addresse]);
+                    $("#searchr").append("<hr/>");
+                }
+            })
+        }
+    }
+    function searchC(address){
+        const cities = $(".city");
+        let regex;
+        $("#searchr").html("");
+        if(address!=null && address!=""){
+            cities.map((key,city) => {
+                regex = new RegExp( address, 'i' );
+                if($(city).text().match(regex)){
+                    $("#searchr").append($($(city).parent()));
                     $("#searchr").append("<hr/>");
                 }
             })
