@@ -16,7 +16,7 @@ use App\Models\Meal;
 class ResourceController extends Controller
 {
     public function hospitals(){
-        $hospitals = Hospital::where("visibility",1)->latest()->get();
+        $hospitals = Hospital::where("visibility",1)->get();
         return view("admin.resources.hospitals")->with([
             "hospitals" => $hospitals
         ]);
@@ -45,7 +45,7 @@ class ResourceController extends Controller
         return redirect()->back();
     }
     public function plasma(){
-        $plasma = PlasmaDonor::where("visibility",1)->latest()->get();
+        $plasma = PlasmaDonor::where("visibility",1)->get();
         return view("admin.resources.plasma")->with([
             "plasma" => $plasma
         ]);
@@ -74,7 +74,7 @@ class ResourceController extends Controller
         return redirect()->back();
     }
     public function testings(){
-        $testings = TestingFacility::where("visibility",1)->latest()->get();
+        $testings = TestingFacility::where("visibility",1)->get();
         return view("admin.resources.testings")->with([
             "testings" => $testings
         ]);
@@ -103,7 +103,7 @@ class ResourceController extends Controller
         return redirect()->back();
     }
     public function ambulances(){
-        $ambulances = Ambulance::where("visibility",1)->latest()->get();
+        $ambulances = Ambulance::where("visibility",1)->get();
         return view("admin.resources.ambulances")->with([
             "ambulances" => $ambulances
         ]);
@@ -132,7 +132,7 @@ class ResourceController extends Controller
         return redirect()->back();
     }
     public function vaccinations(){
-        $vaccinations = VaccinationCenter::where("visibility",1)->latest()->get();
+        $vaccinations = VaccinationCenter::where("visibility",1)->get();
         return view("admin.resources.vaccinations")->with([
             "vaccinations" => $vaccinations
         ]);
@@ -161,7 +161,7 @@ class ResourceController extends Controller
         return redirect()->back();
     }
     public function oxygens(){
-        $oxygens = OxygenAvailability::where("visibility",1)->latest()->get();
+        $oxygens = OxygenAvailability::where("visibility",1)->get();
         return view("admin.resources.oxygens")->with([
             "oxygens" => $oxygens
         ]);
@@ -190,7 +190,7 @@ class ResourceController extends Controller
         return redirect()->back();
     }
     public function medicines(){
-        $medicines = Medicine::where("visibility",1)->latest()->get();
+        $medicines = Medicine::where("visibility",1)->get();
         return view("admin.resources.medicines")->with([
             "medicines" => $medicines
         ]);
@@ -219,7 +219,7 @@ class ResourceController extends Controller
         return redirect()->back();
     }
     public function meals(){
-        $meals = Meal::where("visibility",1)->latest()->get();
+        $meals = Meal::where("visibility",1)->get();
         return view("admin.resources.meals")->with([
             "meals" => $meals
         ]);

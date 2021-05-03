@@ -16,49 +16,49 @@ use App\Models\Meal;
 class MainController extends Controller
 {
     public function hospitals(){
-        $hospitals = Hospital::where("visibility",1)->latest()->get();
+        $hospitals = Hospital::where("visibility",1)->get();
         return view("resources.hospitals")->with([
             "hospitals" => $hospitals
         ]);
     }
     public function plasma(){
-        $plasma = PlasmaDonor::where("visibility",1)->latest()->get();
+        $plasma = PlasmaDonor::where("visibility",1)->get();
         return view("resources.plasma")->with([
             "plasma" => $plasma
         ]);
     }
     public function testings(){
-        $testings = TestingFacility::where("visibility",1)->latest()->get();
+        $testings = TestingFacility::where("visibility",1)->get();
         return view("resources.testings")->with([
             "testings" => $testings
         ]);
     }
     public function ambulances(){
-        $ambulances = Ambulance::where("visibility",1)->latest()->get();
+        $ambulances = Ambulance::where("visibility",1)->get();
         return view("resources.ambulances")->with([
             "ambulances" => $ambulances
         ]);
     }
     public function vaccinations(){
-        $vaccinations = VaccinationCenter::where("visibility",1)->latest()->get();
+        $vaccinations = VaccinationCenter::where("visibility",1)->get();
         return view("resources.vaccinations")->with([
             "vaccinations" => $vaccinations
         ]);
     }
     public function oxygens(){
-        $oxygens = OxygenAvailability::where("visibility",1)->latest()->get();
+        $oxygens = OxygenAvailability::where("visibility",1)->get();
         return view("resources.oxygens")->with([
             "oxygens" => $oxygens
         ]);
     }
     public function medicines(){
-        $medicines = Medicine::where("visibility",1)->latest()->get();
+        $medicines = Medicine::where("visibility",1)->get();
         return view("resources.medicines")->with([
             "medicines" => $medicines
         ]);
     }
     public function meals(){
-        $meals = Meal::where("visibility",1)->latest()->get();
+        $meals = Meal::where("visibility",1)->get();
         return view("resources.meals")->with([
             "meals" => $meals
         ]);
