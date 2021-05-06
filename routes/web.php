@@ -18,6 +18,9 @@ use App\Http\Controllers\VolunteerController as Volunteer;
 // Helpline
 use App\Http\Controllers\HelplineController as Helpline;
 
+// Cowin
+use App\Http\Controllers\CowinController as Cowin;
+
 // Resouces
 use App\Http\Controllers\Resource\MainController as ResourceMain;
 use App\Http\Controllers\Resource\AddController as ResourceAdd;
@@ -89,6 +92,8 @@ Route::middleware(['auth'])->name("admin.")->prefix("admin")->group(function () 
 });
 
 Route::get("helplines",[Helpline::class,"index"])->name("helpline");
+
+Route::get("cowin",[Cowin::class,"index"])->name("cowin");
 
 Route::get("apply-volunteer",[Volunteer::class,"index"])->name("apply-volunteer");
 Route::post("apply-volunteer",[Volunteer::class,"apply"])->name("apply-volunteer");
